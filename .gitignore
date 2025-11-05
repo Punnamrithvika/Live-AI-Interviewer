@@ -1,0 +1,52 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Node / Frontend
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+frontend/.env.*
+frontend/build/
+frontend/dist/
+frontend/.parcel-cache/
+frontend/.next/
+frontend/out/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/.eslintcache
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+.venv/
+venv/
+ENV/
+backend/__pycache__/
+backend/.env
+backend/.env.*
+backend/tmp/
+backend/audio_out/
+
+# Test/Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build artifacts (general)
+build/
+dist/
