@@ -1,0 +1,16 @@
+cohere>=5.3.0
+python-dotenv>=1.0.1
+PyMuPDF>=1.24.10
+python-docx>=1.1.2
+gTTS>=2.5.3
+SpeechRecognition>=3.10.4
+playsound==1.2.2
+pydub>=0.25.1
+fpdf2>=2.7.9
+pyaudio; platform_system == "Windows"
+sentence-transformers>=2.7.0
+transformers>=4.41.0
+torch>=2.2.0
+fastapi>=0.95.0
+uvicorn>=0.22.0
+python-multipart>=0.0.20

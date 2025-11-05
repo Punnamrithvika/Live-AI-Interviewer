@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Runtime outputs
+/audio_out/*
+!/audio_out/.gitkeep
+/data/*
+!/data/.gitkeep
+/reports/*
+!/reports/.gitkeep
+/tmp/*
+!/tmp/.gitkeep
