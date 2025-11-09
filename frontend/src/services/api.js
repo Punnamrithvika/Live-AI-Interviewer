@@ -174,6 +174,25 @@ export const transcribeAudio = async (audioBlob, sessionId) => {
 };
 
 /**
+ * Upload recorded video blob.
+ * @param {Blob} videoBlob - Video (webm/mp4)
+ * @param {string} sessionId - Optional session id
+ * @returns {Promise<{success:boolean, filename:string, url:string}>}
+ */
+export const uploadVideo = async (videoBlob, sessionId) => {
+  const formData = new FormData();
+  const isMp4 = videoBlob?.type?.includes('mp4');
+  const filename = isMp4 ? 'recording.mp4' : 'recording.webm';
+  const file = new File([videoBlob], filename, { type: videoBlob.type || (isMp4 ? 'video/mp4' : 'video/webm') });
+  formData.append('file', file);
+  if (sessionId) formData.append('session_id', sessionId);
+  const response = await api.post('/upload-video', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  });
+  return response.data;
+};
+
+/**
  * Get system status
  * @returns {Promise} System status
  */

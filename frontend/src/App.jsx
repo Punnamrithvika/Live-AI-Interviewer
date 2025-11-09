@@ -23,6 +23,7 @@ const SetupPage = () => {
     resumeData: null,
   });
   const [error, setError] = useState(null);
+  const hasResume = !!formData.resumeData;
 
   const handleAddSkill = () => {
     if (formData.currentSkill.trim()) {
@@ -54,6 +55,13 @@ const SetupPage = () => {
   const handleStartInterview = async () => {
     if (!formData.candidateName || !formData.jobTitle || formData.skills.length === 0) {
       setError('Please fill in all required fields and add at least one skill');
+      return;
+    }
+
+    // Enforce resume upload before proceeding
+    if (!formData.resumeData) {
+      setError('Please upload your resume before starting the interview');
+      try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
       return;
     }
 
@@ -174,14 +182,16 @@ const SetupPage = () => {
           </div>
 
           {error && (
-            <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-800 dark:text-red-200">
+            <div className="p-4 bg-white dark:bg-white border border-red-200 dark:border-red-300 rounded-lg text-red-800 dark:text-red-800">
               {error}
             </div>
           )}
 
           <button
             onClick={handleStartInterview}
-            className="btn-primary w-full"
+            disabled={!hasResume}
+            className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+            title={!hasResume ? 'Please upload your resume to enable this button' : ''}
           >
             Start Interview
           </button>

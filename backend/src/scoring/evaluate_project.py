@@ -65,6 +65,12 @@ def _lazy_load_st_model(model_name: str):
     except Exception:
         return None
 
+# Pre-warm sentence transformer at import to avoid first-request latency (best-effort)
+try:
+    _lazy_load_st_model(os.getenv("PROJECT_EVAL_SIM_MODEL", "all-MiniLM-L6-v2"))
+except Exception:
+    pass
+
 
 def _semantic_similarity_score(answer: str, model_name: Optional[str] = None) -> Optional[float]:
     """Return 0..100 similarity score or None if unavailable."""

@@ -17,9 +17,20 @@ COHERE_API_KEY=YOUR_COHERE_API_KEY
 python -m venv .venv; .\.venv\Scripts\Activate.ps1; pip install -r backend\requirements.txt
 ```
 
-4. **(Optional but recommended)** Install ffmpeg for audio transcription:
+4. Speech-to-Text (STT) configuration:
+
+   - The frontend converts mic audio to 16kHz mono WAV before upload to avoid server ffmpeg dependency.
+   - If the browser sends non-WAV (rare fallback), ffmpeg is required server-side to transcode.
+   - You can control STT via environment variables in `.env`:
+     - `STT_ENGINE=google` (default) uses free Google Web Speech API (rate/length limited)
+     - `STT_ENGINE=google_cloud` uses Google Cloud STT; set `GOOGLE_CLOUD_SPEECH_CREDENTIALS` to the JSON string of your service account credentials
+     - `STT_LANGUAGE=en-US` (default), e.g., `en-IN`, `en-GB`, etc.
+   - If STT fails, the UI prompts the candidate to type their answer so the interview can continue.
+
+   Optional ffmpeg installation (for non-WAV uploads):
+
    - See `../SETUP_FFMPEG.md` for installation instructions
-   - Without ffmpeg, transcription will fall back to typed input
+   - Without ffmpeg, only WAV uploads will be transcribed
 
 Notes for Windows:
 
@@ -51,3 +62,41 @@ Implement `score(question, answer, context=None)` in `src/scoring/trained_model.
 ## Project structure
 
 See comments in each module. Entry point is `backend/main.py` which uses `InterviewController`.
+
+## Offline training and faster runtime
+
+To avoid recomputing embeddings at runtime, you can prebuild scoring artifacts:
+
+1. Train/build artifacts (PowerShell):
+
+```
+.\.venv\Scripts\Activate.ps1
+python backend\src\scoring\model_train.py --dataset backend\src\scoring\combined_dataset_final.csv --out backend\src\scoring\artifacts
+```
+
+This creates `meta.json` and `answers.pt` under `backend/src/scoring/artifacts/`.
+
+2. Runtime behavior:
+
+- `src/scoring/trained_model.py` now auto-detects these artifacts and delegates to `src/scoring/evaluate_skills.py`.
+- If artifacts are missing, it falls back to the dynamic path that loads the dataset and computes embeddings on the fly (with caching under `src/scoring/cache/`).
+
+3. Optional settings:
+
+- Models are cached under `backend/src/scoring/cache/` by default to speed up subsequent runs.
+
+## Quick sanity checks
+
+Run lightweight checks without starting the server:
+
+- STT smoke test (offline, no mic required):
+
+  ```
+  python backend\tests\test_stt_smoke.py
+  ```
+
+- Report generation integrity (PDF or .txt fallback):
+
+  ```
+  python backend\tests\test_report_generation.py
+  ```

@@ -6,7 +6,7 @@ gTTS>=2.5.3
 SpeechRecognition>=3.10.4
 playsound==1.2.2
 pydub>=0.25.1
-fpdf2>=2.7.9
+reportlab>=4.1.0
 pyaudio; platform_system == "Windows"
 sentence-transformers>=2.7.0
 transformers>=4.41.0

@@ -1279,3 +1279,824 @@ What is the use of Django REST Framework?,"The Django REST Framework (DRF) is an
 What is context in Django templates?,"Context in Django templates is a dictionary of data passed from views to templates. It contains variables and values that templates render dynamically. For example, sending `{‘name’: ‘John’}` from a view allows you to display 'Hello, John!' in the template. Context enables dynamic content rendering."
 What are signals in Django?,"Signals allow decoupled components in Django to communicate. They notify parts of an application when specific actions occur, like saving or deleting a model. For instance, the `post_save` signal can trigger a function after a model instance is saved. Signals promote cleaner and modular code."
 What is the difference between get() and filter() in Django ORM?,"`get()` returns a single object that matches the query and raises an error if none or multiple are found, while `filter()` returns a QuerySet of all matching records. Use `get()` when expecting one exact match and `filter()` for retrieving multiple or optional results safely."
+What is Java?,"Java is a high-level, object-oriented programming language developed by Sun Microsystems. It is platform-independent due to its bytecode running on the Java Virtual Machine (JVM). Java emphasizes portability, security, and robustness, and is used widely in enterprise, web, and Android development."
+Why is Java platform-independent?,"Java achieves platform independence through its compilation to bytecode, which is executed by the Java Virtual Machine (JVM). The JVM abstracts hardware and operating system differences, allowing the same .class file to run on any system with a compatible JVM."
+What are the main features of Java?,"Key features of Java include platform independence, object-oriented design, simplicity, security, robustness, automatic garbage collection, multithreading, rich API libraries, and portability. These features make Java suitable for enterprise-scale and cross-platform applications."
+What is the JVM?,"The Java Virtual Machine (JVM) is an engine that executes Java bytecode. It handles memory management, class loading, garbage collection, and runtime optimizations. JVM enables Java’s 'write once, run anywhere' philosophy by abstracting hardware and OS details."
+"What are JDK, JRE, and JVM?",JDK (Java Development Kit) includes tools to develop and compile Java programs. JRE (Java Runtime Environment) provides libraries and the JVM to run Java applications. JVM executes compiled bytecode. JDK ⊃ JRE ⊃ JVM.
+What is bytecode?,Bytecode is the intermediate code compiled from Java source code (.java) into .class files. It is platform-independent and executed by the JVM. Bytecode ensures portability and allows runtime optimizations and security verification.
+Explain the structure of a Java program.,"A Java program consists of a class definition containing methods. The entry point is `public static void main(String[] args)`. Example: `class Hello { public static void main(String[] a){ System.out.println(""Hello""); } }`."
+What are identifiers in Java?,"Identifiers are names used for classes, methods, variables, and packages. They must start with a letter, underscore, or $, followed by letters or digits. Identifiers are case-sensitive and cannot be Java reserved keywords."
+What are data types in Java?,"Java has two categories of data types: primitive (byte, short, int, long, float, double, char, boolean) and reference (classes, arrays, interfaces). Primitive types hold values directly; reference types store object references."
+What is type casting in Java?,Type casting converts a variable from one type to another. Implicit casting (widening) happens automatically; explicit casting (narrowing) requires a cast. Example: `double d = 10; int x = (int) d;`.
+What are variables and how are they declared?,"Variables store data values. They must be declared with a type before use, e.g., `int age = 25;`. Variables can be local, instance, or static depending on scope and lifetime."
+What are constants in Java?,"Constants are fixed values declared using the `final` keyword. Example: `final double PI = 3.14159;`. Once assigned, constants cannot change during program execution."
+Explain literals in Java.,"Literals are constant values directly used in code. Examples include numeric (10, 3.14), character ('A'), string (""Hello""), and boolean (true/false) literals."
+What are operators in Java?,"Operators perform operations on variables or values. Categories include arithmetic (+, -), relational (>, <), logical (&&, ||), assignment (=, +=), bitwise (&, |), and ternary (?:)."
+What is operator precedence?,"Operator precedence determines the order in which operations are evaluated. For example, multiplication (*) has higher precedence than addition (+), so in `3 + 2 * 5`, multiplication occurs first."
+What is the difference between pre-increment and post-increment?,"Pre-increment (++x) increments the variable before evaluation; post-increment (x++) increments after evaluation. Example: if x=5, then y=++x gives y=6; y=x++ gives y=5."
+What are control flow statements?,"Control flow statements determine the execution path: conditional (if, if-else, switch), looping (for, while, do-while), and branching (break, continue, return)."
+Explain the if-else statement with example.,"if-else executes conditional logic. Example: `if (x > 0) System.out.println(""Positive""); else System.out.println(""Non-positive"");`."
+What is a switch statement?,"switch allows multi-branch selection based on an expression. Example: `switch(day){case 1: System.out.println(""Mon""); break; default: System.out.println(""Other"");}`."
+Difference between while and do-while loops?,`while` checks the condition before executing the loop; `do-while` executes at least once. Example: `do{...}while(condition);` runs once even if condition is false.
+What are for loops?,"for loops repeat a block of code a specific number of times. Syntax: `for(int i=0; i<5; i++){ System.out.println(i); }`. It includes initialization, condition, and increment."
+What is the enhanced for loop?,Enhanced for loop (for-each) simplifies array/collection iteration. Example: `for(String s : list){ System.out.println(s); }`. It eliminates index handling.
+What are arrays in Java?,"Arrays store multiple values of the same type in contiguous memory. Declared as `int[] nums = {1,2,3};`. Arrays have fixed size and zero-based indices."
+Can arrays hold different data types?,"No, arrays are homogeneous—they hold elements of the same type. For heterogeneous data, use collections like ArrayList<Object>."
+What is a multidimensional array?,"A multidimensional array is an array of arrays. Example: `int[][] matrix = {{1,2},{3,4}};`. It can represent tables or grids."
+Explain array length property.,Each array has a `length` field that stores its size. Example: `int[] a = new int[5]; System.out.println(a.length);` prints 5.
+What is the difference between length and length()?,`length` is a field for arrays; `length()` is a method for strings. Example: `arr.length` vs `str.length()`.
+What are wrapper classes in Java?,"Wrapper classes convert primitives into objects (Integer, Double, etc.). Example: `Integer obj = Integer.valueOf(10); int n = obj;`."
+What is autoboxing and unboxing?,Autoboxing converts primitives to wrappers automatically; unboxing does the reverse. Example: `Integer i = 5; int j = i;`.
+Explain the difference between static and instance variables.,"Static variables belong to the class and are shared by all objects; instance variables belong to each object. Access static via class name, e.g., ClassName.var."
+What are static methods?,"Static methods belong to the class, not an instance. They can be called without creating objects. Example: `Math.sqrt(9);`."
+What is the purpose of the main() method?,The `main()` method (`public static void main(String[] args)`) is the entry point of a Java program. JVM calls it to start execution.
+Explain the difference between local and instance variables.,"Local variables are declared inside methods and exist only during execution. Instance variables are declared inside a class but outside methods, accessible via objects."
+What is the default value of local variables?,"Local variables do not have default values; they must be explicitly initialized before use, or compilation fails."
+What is a constructor?,A constructor initializes objects when they are created. It has the same name as the class and no return type. Example: `Car(){ speed=100; }`.
+What are the types of constructors?,"Java has default, parameterized, and copy constructors. The compiler provides a default if none is defined. Parameterized constructors accept arguments to initialize fields."
+What is constructor overloading?,"Constructor overloading defines multiple constructors with different parameter lists. Example: `Box(){}` and `Box(int l,int w){}` coexist to initialize differently."
+Can constructors be inherited?,"No, constructors are not inherited but can be invoked from subclasses using `super()` to initialize parent attributes."
+What is the difference between this() and super()?,`this()` calls another constructor in the same class; `super()` calls a constructor in the parent class. Both must be first statements in a constructor.
+What are packages in Java?,Packages group related classes and interfaces. Example: `package com.example;`. They provide namespace management and access protection.
+Explain access modifiers in Java.,"Access modifiers define visibility: public (accessible everywhere), protected (within package + subclass), default (package-private), and private (within class only)."
+What is the import statement used for?,`import` brings other classes or packages into scope. Example: `import java.util.*;` allows using classes like ArrayList without full path.
+What is the difference between import and static import?,Normal import allows class access; static import allows accessing static members without class qualification. Example: `import static java.lang.Math.*; double x=sin(0.5);`.
+What is the scope of a variable?,Scope defines where a variable is accessible. Local variables are limited to blocks; instance variables belong to objects; static variables belong to classes.
+What are comments in Java?,"Comments document code. Types: single-line `//`, multi-line `/*...*/`, and documentation `/**...*/` used by Javadoc."
+Explain the role of Javadoc.,Javadoc generates API documentation from source comments using `/** */`. Example: `/** This method returns sum */`. Run `javadoc` to generate HTML docs.
+What is naming convention in Java?,"Use camelCase for variables/methods, PascalCase for classes, uppercase for constants. Example: class CarModel; int speedLimit; final int MAX_SPEED;."
+What is dynamic initialization?,Dynamic initialization assigns values at runtime instead of compile time. Example: `int a = Integer.parseInt(args[0]);` initializes from user input.
+What is the difference between compile-time and runtime errors?,"Compile-time errors are syntax or type errors detected by the compiler. Runtime errors occur during execution, like NullPointerException or division by zero."
+What are keywords in Java?,"Keywords are reserved identifiers with predefined meanings (e.g., class, static, void, return, if, while). Java has around 50 reserved keywords."
+What is the difference between public class and default class?,A public class is accessible from any package; a default (no modifier) class is accessible only within its own package.
+Can a source file have multiple public classes?,"No, only one public class is allowed per file, and the file name must match that class name. Other non-public classes are allowed."
+What is the use of final keyword?,"final can be used with variables (constants), methods (prevent overriding), or classes (prevent inheritance). Example: `final class A{}` prevents subclassing."
+What is static block in Java?,"Static blocks initialize static variables when the class is loaded. Example: `static { System.out.println(""Loaded""); }`. They execute once per class load."
+Explain the difference between break and continue.,"break exits a loop or switch; continue skips the current iteration and moves to the next. Example: in loops, `continue` jumps to next iteration."
+What is the ternary operator in Java?,The ternary operator (`?:`) provides a compact conditional expression: `int min = (a < b) ? a : b;`. Equivalent to a short if-else.
+What are command-line arguments?,"Command-line arguments are inputs passed to main() via `String[] args`. Example: run `java MyClass hello` makes args[0] = ""hello""."
+What is System.out.println()?,"System.out.println() prints output to the console. `System` is a class, `out` is a PrintStream object, and `println()` is a method that prints and appends a newline."
+What is Object-Oriented Programming (OOP)?,"Object-Oriented Programming (OOP) is a programming paradigm based on the concept of objects that contain data (fields) and behavior (methods). It promotes modularity, reusability, and scalability through encapsulation, inheritance, polymorphism, and abstraction."
+What are the four main principles of OOP?,"The four core principles of OOP are Encapsulation, Inheritance, Polymorphism, and Abstraction. These principles help organize code, reduce redundancy, and enhance maintainability and flexibility in software design."
+What is a class in Java?,A class is a blueprint for creating objects. It defines attributes (fields) and behaviors (methods) that the objects of that class will have. Example: `class Car { int speed; void drive(){ } }`.
+What is an object in Java?,An object is an instance of a class. It represents a real-world entity and has a state (data) and behavior (methods). Example: `Car c1 = new Car();` creates an object of Car class.
+How is an object created in Java?,Objects are created using the `new` keyword followed by a constructor call. Example: `Car car1 = new Car();`. This allocates memory and returns a reference to the object.
+What is the difference between class and object?,"A class is a template defining structure and behavior, while an object is a specific instance of that template with actual data values and can execute class methods."
+What is encapsulation in Java?,"Encapsulation means bundling data and methods that operate on that data within a single unit, typically a class. It restricts direct access to fields using access modifiers like private."
+How do you achieve encapsulation in Java?,Encapsulation is achieved by declaring class variables as private and providing public getter and setter methods for controlled access. Example: `private int age; public int getAge(){return age;}`.
+What are the benefits of encapsulation?,"Encapsulation improves data security, hides implementation details, enhances code maintainability, and provides flexibility to modify internal logic without affecting external code."
+What is data hiding?,Data hiding is a part of encapsulation that prevents external classes from directly accessing internal object data. It ensures integrity and prevents unintended modifications.
+What is inheritance in Java?,Inheritance allows one class to inherit the properties and methods of another class. It promotes code reuse. Example: `class Dog extends Animal {}` inherits Animal's attributes and methods.
+What are the types of inheritance in Java?,"Java supports single, multilevel, and hierarchical inheritance. Multiple inheritance through classes is not supported but can be achieved using interfaces."
+Why doesn’t Java support multiple inheritance through classes?,"Java avoids multiple inheritance through classes to prevent ambiguity caused by the Diamond Problem, where multiple parent classes may define methods with the same signature."
+What is the super keyword used for?,`super` is used to refer to the immediate parent class. It can call the parent constructor (`super()`) or parent methods (`super.method()`).
+Can constructors be inherited?,"No, constructors are not inherited, but a subclass can call a parent constructor using `super()` to initialize inherited properties."
+What is method overriding?,Method overriding allows a subclass to provide its own implementation for a method defined in a parent class. It enables runtime polymorphism. Example: `@Override void eat(){}`.
+What are the rules for method overriding?,"The overriding method must have the same signature, be no more restrictive in access, and cannot throw new or broader checked exceptions than the parent method."
+What is method overloading?,Method overloading allows multiple methods in the same class with the same name but different parameter lists (number or type). It provides compile-time polymorphism.
+Can you overload the main() method in Java?,"Yes, main() can be overloaded, but only the standard signature `public static void main(String[] args)` is used as the entry point by the JVM."
+What is polymorphism in Java?,Polymorphism means 'many forms'. It allows the same method or object to behave differently based on the context. Achieved through method overloading (compile-time) and overriding (runtime).
+What are the types of polymorphism in Java?,"There are two types: compile-time (static) polymorphism achieved by method overloading, and runtime (dynamic) polymorphism achieved by method overriding."
+How is runtime polymorphism achieved in Java?,Runtime polymorphism is achieved when a superclass reference variable refers to a subclass object. Method calls are resolved dynamically at runtime. Example: `Animal a = new Dog(); a.sound();`.
+What is dynamic method dispatch?,"Dynamic method dispatch is the process where a call to an overridden method is resolved at runtime based on the actual object being referenced, not the reference type."
+Is inheritance required for polymorphism?,"Yes, for runtime polymorphism, inheritance is necessary because overriding occurs between a superclass and subclass. Overloading doesn’t require inheritance."
+Can we override static methods in Java?,"Static methods cannot be overridden because they belong to the class, not instances. However, they can be redefined (hidden) in subclasses using the same signature."
+What happens if a method is private and overridden in a subclass?,"Private methods are not visible to subclasses, hence they cannot be overridden. A method with the same signature in a subclass is a new, unrelated method."
+What is abstraction in Java?,Abstraction hides implementation details and shows only essential features. It focuses on what an object does rather than how it does it. Achieved using abstract classes or interfaces.
+How is abstraction achieved in Java?,Abstraction is achieved using abstract classes (partial abstraction) and interfaces (full abstraction). Abstract classes can have both abstract and concrete methods.
+What is an abstract class?,An abstract class is a class declared with the `abstract` keyword. It may contain abstract methods without implementation. Example: `abstract class Shape { abstract void draw(); }`.
+Can an abstract class have constructors?,"Yes, abstract classes can have constructors. They are called when a subclass object is created to initialize inherited members."
+Can we create an instance of an abstract class?,"No, abstract classes cannot be instantiated directly. You must subclass them and implement all abstract methods before creating objects."
+What is an interface in Java?,An interface is a collection of abstract methods that define a contract for implementing classes. It supports multiple inheritance. Example: `interface Drawable { void draw(); }`.
+Can interfaces have variables?,"Yes, but all variables in an interface are implicitly public, static, and final (constants). They must be initialized when declared."
+Can interfaces have constructors?,"No, interfaces cannot have constructors because they cannot be instantiated directly. They are meant to be implemented by classes."
+What are default methods in interfaces?,Default methods were introduced in Java 8. They allow interfaces to have methods with implementation to maintain backward compatibility. Example: `default void log(){}`.
+What are static methods in interfaces?,Interfaces can define static methods that belong to the interface itself. They can be accessed using InterfaceName.method(). Example: `InterfaceName.show();`.
+What is marker interface in Java?,"A marker interface has no methods and serves to tag a class with metadata, e.g., Serializable, Cloneable. It signals to the JVM or frameworks to perform specific operations."
+What is the difference between abstract class and interface?,"Abstract classes can have both concrete and abstract methods, while interfaces (before Java 8) could only have abstract methods. Interfaces support multiple inheritance; abstract classes do not."
+Can an abstract class implement an interface?,"Yes, an abstract class can implement an interface and provide partial implementation. Subclasses must then implement the remaining methods."
+Can an interface extend another interface?,"Yes, interfaces can extend other interfaces using the `extends` keyword, supporting multiple inheritance among interfaces."
+What is multiple inheritance through interface?,"A class can implement multiple interfaces, inheriting behavior from all of them, thus achieving multiple inheritance safely without ambiguity."
+What is composition in OOP?,Composition is an association where one class contains an instance of another class to reuse functionality. Example: a Car 'has-a' Engine.
+What is aggregation in OOP?,"Aggregation represents a 'has-a' relationship where both objects can exist independently. Example: Department has Employees, but employees can exist elsewhere."
+Difference between composition and aggregation?,"In composition, contained objects depend on the container (strong association). In aggregation, contained objects can exist independently (weak association)."
+What is association in OOP?,"Association represents a relationship between two separate classes through their objects. It can be one-to-one, one-to-many, or many-to-many."
+What is the this keyword?,"`this` refers to the current object instance. It resolves ambiguity between instance variables and parameters, and can invoke other constructors within the same class."
+Can you return this keyword?,"Yes, `this` can be returned from a method to allow method chaining. Example: `return this;` used in builder patterns."
+What is the use of the super keyword?,"`super` refers to the immediate parent object. It is used to invoke parent class constructors, methods, and variables hidden by the subclass."
+Can super() and this() be used together in a constructor?,"No, both must be the first statement in a constructor, so they cannot coexist in the same constructor."
+What is final class?,A final class cannot be extended. Declared using `final` keyword. Example: `final class Constants {}` prevents inheritance.
+Can a final method be overridden?,"No, final methods cannot be overridden by subclasses. This ensures method implementation remains unchanged."
+Can a final variable be reassigned?,"No, final variables are constants and can be assigned only once. For object references, the reference cannot change, but the object can mutate."
+What is static binding?,"Static binding (early binding) occurs at compile time for methods like private, static, and final. It’s resolved by the compiler, not at runtime."
+What is dynamic binding?,"Dynamic binding (late binding) occurs at runtime when the method to be executed is determined by the actual object type, enabling polymorphism."
+What is an inner class?,An inner class is defined within another class. It can access outer class members directly and helps logically group related classes together.
+What are the types of inner classes?,"Inner class types: member inner, static nested, local (method-level), and anonymous inner classes. Each has specific scoping rules and use cases."
+What is a static nested class?,A static nested class is defined with the static keyword inside another class. It cannot access non-static members of the outer class directly.
+What is an anonymous inner class?,"An anonymous inner class is a class without a name, defined and instantiated in one expression, often used to override methods on the fly."
+What is an example of anonymous inner class?,"Example: `Runnable r = new Runnable(){ public void run(){ System.out.println(""Running""); } };` creates a one-time class implementing Runnable."
+Can an interface have an inner class?,"Yes, an interface can have nested classes, and they are implicitly public and static. Example: `interface A { class Inner {} }`."
+What is constructor chaining?,Constructor chaining refers to calling one constructor from another within the same class (using this()) or parent class (using super()). It promotes code reuse and proper initialization order.
+What is object cloning?,Object cloning creates an exact copy of an existing object using the clone() method from the Cloneable interface. Example: `obj.clone();`.
+Why is Cloneable interface used?,"Cloneable indicates to the JVM that the class allows cloning. Without it, calling clone() throws CloneNotSupportedException."
+Difference between shallow and deep cloning?,"Shallow cloning copies field values directly, sharing object references. Deep cloning recursively copies all referenced objects, creating independent copies."
+Can a constructor be private?,"Yes, private constructors prevent external instantiation, often used in Singleton patterns or utility classes with only static methods."
+What is Singleton class?,A Singleton ensures only one instance exists globally. Achieved using private constructor and a static getInstance() method returning the same instance.
+Can abstract classes have final methods?,"Yes, abstract classes can have final methods to prevent subclasses from changing certain behaviors while still enforcing others through abstract methods."
+What is the difference between interface inheritance and class inheritance?,Interface inheritance allows multiple inheritance and defines behavior contracts. Class inheritance allows implementation sharing but is limited to single inheritance.
+Can we achieve multiple inheritance in Java?,"Java does not allow multiple inheritance through classes but allows it through interfaces, avoiding ambiguity in method resolution."
+What is the Object class in Java?,"Object is the root superclass for all classes in Java. It provides common methods like toString(), equals(), hashCode(), and clone()."
+What is the toString() method used for?,toString() returns a string representation of an object. It is commonly overridden for meaningful output instead of default memory address format.
+What does the equals() method do?,equals() compares two objects for logical equality. Default implementation checks reference equality unless overridden by the class.
+What is the hashCode() method?,hashCode() returns an integer representing the object's hash. It ensures objects used in hash-based collections are efficiently stored and retrieved.
+What is the difference between == and equals()?,"`==` checks reference equality, while equals() checks logical equality. Example: two different String objects may be equal but not identical references."
+Why should equals() and hashCode() be consistent?,"If two objects are equal, their hashCodes must be identical to ensure consistent behavior in hash-based collections like HashMap or HashSet."
+What is instanceof operator?,instanceof checks whether an object is an instance of a specific class or subclass. Example: `if(obj instanceof String){}` returns true for String objects.
+Can instanceof be used with interfaces?,"Yes, instanceof can check if an object implements a given interface. Example: `if(x instanceof Runnable)` checks interface implementation."
+What is the difference between shallow copy and deep copy?,"A shallow copy duplicates top-level fields, referencing the same objects. Deep copy duplicates all nested objects, ensuring independence from the original."
+What are the advantages of OOP?,"OOP provides modularity, reusability, flexibility, and maintainability. It simplifies debugging, encourages abstraction, and promotes design patterns like MVC or Singleton."
+What are the disadvantages of OOP?,"OOP can introduce complexity, slower performance due to abstraction, and overuse of inheritance can lead to tight coupling and maintainability issues."
+What is coupling in OOP?,Coupling refers to the degree of interdependence between classes. Loose coupling is desirable as it enhances maintainability and reduces dependency issues.
+What is cohesion in OOP?,"Cohesion measures how closely related the responsibilities of a class are. High cohesion means a class has a focused purpose, improving clarity and reusability."
+Difference between coupling and cohesion?,"Coupling relates to dependencies between classes, while cohesion measures unity within a class. High cohesion and low coupling lead to better design."
+What are design patterns in OOP?,"Design patterns are proven solutions to common design problems in OOP. Examples include Singleton, Factory, Observer, and Decorator patterns."
+What is a String in Java?,"A String in Java is an immutable sequence of characters represented by the `java.lang.String` class. It stores text data and provides various methods for manipulation such as concat(), substring(), and length()."
+Why are Strings immutable in Java?,"Strings are immutable to ensure security, thread safety, and performance benefits from string pooling. Once created, a String object cannot be modified; any change results in a new object."
+What is the String pool?,"The String pool is a special memory area in the heap that stores unique string literals. When a new literal is created, the JVM checks the pool to reuse existing strings, optimizing memory usage."
+How is a String object created in Java?,"A String can be created using literals (`String s = ""hello"";`) or the `new` keyword (`String s = new String(""hello"");`). The first uses the string pool, while the second creates a new object in the heap."
+What is the difference between '==' and equals() for Strings?,"`==` compares string references (memory locations), while `equals()` compares the actual content. Use equals() for string value comparison to avoid reference mismatch issues."
+What is the concat() method used for?,`concat()` joins two strings. Example: `String result = str1.concat(str2);` creates a new string since Strings are immutable.
+What is the difference between StringBuilder and StringBuffer?,"StringBuilder is non-synchronized and faster, suitable for single-threaded operations. StringBuffer is synchronized and thread-safe, used in multithreaded environments."
+Why are StringBuilder and StringBuffer mutable?,"They are mutable to allow in-place modifications without creating new objects for each change, improving performance for frequent string concatenations."
+How do you reverse a String in Java?,Use StringBuilder’s reverse() method: `String reversed = new StringBuilder(str).reverse().toString();` or manually iterate and reverse characters.
+What is the difference between substring() and subSequence()?,"`substring()` returns a new String, while `subSequence()` returns a CharSequence view. Both extract portions of the original string but differ in return type."
+How do you compare Strings ignoring case?,Use the equalsIgnoreCase() method. Example: `str1.equalsIgnoreCase(str2)` returns true if the strings are equal irrespective of case differences.
+How do you convert a String to a character array?,Use `toCharArray()` method: `char[] chars = str.toCharArray();`. It returns a copy of the string’s character sequence as an array.
+How do you split a String in Java?,"Use the split() method with a delimiter. Example: `String[] parts = str.split("","");` divides the string wherever commas occur."
+What does the intern() method do?,"The intern() method stores a string in the string pool if it’s not already present and returns the pooled instance, saving memory for repeated literals."
+What is the valueOf() method used for?,"`String.valueOf()` converts primitives or objects into string representations. Example: `String s = String.valueOf(123);` results in ""123""."
+What does the trim() method do?,"trim() removes leading and trailing whitespace from a string but doesn’t affect internal spaces. Example: `"" hello "".trim()` returns ""hello""."
+What is the difference between replace() and replaceAll()?,"replace() substitutes characters or substrings literally, while replaceAll() uses regular expressions for pattern-based replacement."
+How do you check if a String is empty or null?,Use: `if (str == null || str.isEmpty())` to check both null and empty cases safely. Avoid calling methods on null strings to prevent NullPointerException.
+What is String.format() used for?,"String.format() formats strings with placeholders. Example: `String msg = String.format(""Hello %s, age %d"", name, age);`."
+How do you convert a String to lowercase or uppercase?,Use `toLowerCase()` and `toUpperCase()`. Example: `str.toLowerCase(); str.toUpperCase();` modifies letter casing according to locale rules.
+What are wrapper classes in Java?,"Wrapper classes are object representations of primitive types (Integer, Double, etc.). They allow primitives to be used in collections and generics."
+Why are wrapper classes needed?,"They enable primitives to behave as objects, support null values, and provide methods for conversion and comparison, especially useful with collections and generics."
+What are autoboxing and unboxing in Java?,"Autoboxing converts a primitive to its wrapper type automatically, while unboxing extracts the primitive value from a wrapper. Example: `Integer i = 10; int n = i;`."
+What is the difference between parseInt() and valueOf()?,"`parseInt()` returns a primitive int, while `valueOf()` returns an Integer object. Example: `Integer.valueOf(""5"")` vs `Integer.parseInt(""5"")`."
+What is the default value for wrapper classes?,"Wrapper class references default to `null`, unlike primitive types that have specific default values like 0 or false."
+What are memory areas in the JVM?,"The JVM memory is divided into Heap, Stack, Method Area (Metaspace), and PC registers. Each serves a specific purpose in executing Java programs."
+What is the heap memory used for?,Heap memory stores objects and arrays created during runtime. It is managed by garbage collection and shared among all threads.
+What is stack memory used for?,"Stack memory stores local variables, references, and method call frames for each thread. It is faster but limited in size compared to the heap."
+What is the method area in JVM?,"The method area (Metaspace in Java 8+) stores class-level information such as method code, static variables, and runtime constant pools."
+What is the difference between heap and stack memory?,"Heap is shared memory for object storage managed by the GC. Stack is per-thread, storing method calls and local variables, managed automatically."
+What is the garbage collector?,"The garbage collector (GC) automatically reclaims memory used by objects that are no longer reachable, freeing developers from manual memory management."
+What are the types of garbage collectors in Java?,"Java provides several GC algorithms: Serial, Parallel, CMS, G1, and ZGC. Each balances throughput and pause time differently for performance tuning."
+How does the JVM determine which objects to garbage collect?,The JVM uses reachability analysis. Objects not reachable from GC roots (like stack variables or static references) are considered eligible for collection.
+What are GC roots in Java?,"GC roots include local variables, static fields, and active threads. Any object reachable from these roots is considered live and not collected."
+What is finalize() in Java?,finalize() is a method called by the GC before reclaiming an object. It was used for cleanup but is deprecated due to unpredictability.
+What replaced finalize() in Java?,"The `Cleaner` API and `try-with-resources` mechanism replaced finalize() for resource cleanup, offering more reliable and deterministic control."
+What is memory leak in Java?,"A memory leak occurs when objects remain reachable unintentionally, preventing GC. Common causes include static references or unclosed resources."
+What are weak references?,Weak references allow GC to collect objects even if they are still referenced weakly. Useful for caches to avoid memory leaks.
+What are soft references?,"Soft references are retained until memory is low, used for implementing memory-sensitive caches. The GC clears them before throwing OutOfMemoryError."
+What are phantom references?,"Phantom references provide a mechanism to perform cleanup actions after an object becomes unreachable, typically used with ReferenceQueue."
+What is an OutOfMemoryError?,OutOfMemoryError occurs when the JVM cannot allocate memory for new objects due to insufficient heap space or memory leaks.
+What is StackOverflowError?,StackOverflowError occurs when the stack memory is exhausted due to deep or infinite recursion in method calls.
+What is the difference between strong and weak references?,"Strong references prevent GC, while weak references allow objects to be collected. By default, all Java references are strong unless specified otherwise."
+How do you monitor memory usage in Java?,"Use tools like jconsole, jvisualvm, or Java Flight Recorder. Programmatically, use `Runtime.getRuntime().totalMemory()` and `freeMemory()` methods."
+How does the JVM optimize memory?,"The JVM uses adaptive GC algorithms, JIT compilation, and memory pools (Eden, Survivor, Old Gen) to optimize memory allocation and reclamation."
+What are the JVM generations?,"Heap memory is divided into Young Generation, Old Generation, and Metaspace. Young stores new objects, old stores long-lived ones, and metaspace holds metadata."
+What is the role of Eden and Survivor spaces?,"New objects are allocated in Eden. Surviving objects move between two Survivor spaces, then eventually to the Old Generation if they persist."
+How can you suggest JVM to run garbage collection?,"Call `System.gc()` or `Runtime.getRuntime().gc()`, but the JVM is not obligated to perform GC immediately."
+What is the difference between finalize() and AutoCloseable?,"`finalize()` is called unpredictably by GC, while AutoCloseable’s close() is called explicitly or automatically in try-with-resources, ensuring deterministic cleanup."
+What is the purpose of System.gc()?,System.gc() is a hint to the JVM to perform garbage collection. It doesn’t guarantee immediate execution and should be used sparingly.
+How do you prevent memory leaks in Java?,"Avoid unnecessary static references, close I/O streams, use weak references for caches, and prefer try-with-resources for automatic cleanup."
+What is escape analysis in Java?,"Escape analysis determines if an object is confined to a thread. If so, the JVM can allocate it on the stack instead of the heap, improving performance."
+What is string interning and how does it help memory?,Interning stores unique string literals in a shared pool. It reduces memory usage and speeds up comparisons by allowing reference equality for identical strings.
+Can strings be modified using reflection?,"Technically, yes, by accessing the internal char[] array via reflection, but it’s unsafe and breaks immutability guarantees. Should never be done in practice."
+"What is the difference between String, StringBuilder, and StringBuffer?",String is immutable. StringBuilder is mutable and non-synchronized (faster). StringBuffer is mutable and synchronized (thread-safe). Choose based on use case.
+Why should you prefer StringBuilder for concatenation in loops?,"Using String concatenation in loops creates multiple temporary objects. StringBuilder modifies in place, significantly improving performance."
+What is interned string comparison faster?,"Interned strings allow using `==` for comparison since identical literals point to the same reference, eliminating the need for character-by-character checks."
+What is exception handling in Java?,"Exception handling is Java’s mechanism to handle runtime errors gracefully without crashing the program. It uses try, catch, finally, throw, and throws to detect and manage exceptions."
+What is an exception?,"An exception is an event that disrupts the normal flow of a program during execution. It can occur due to invalid input, resource failure, or programming errors."
+What are the main categories of exceptions in Java?,"Java exceptions fall into three categories: Checked exceptions, Unchecked exceptions (RuntimeExceptions), and Errors (serious issues beyond program control)."
+What is the difference between checked and unchecked exceptions?,"Checked exceptions are verified at compile time (e.g., IOException). Unchecked exceptions (RuntimeException) occur at runtime and are not checked by the compiler."
+What is the hierarchy of exception classes?,"Throwable is the superclass. Its two direct subclasses are Exception (recoverable) and Error (non-recoverable). Under Exception, we have checked and unchecked types."
+What is the difference between Exception and Error?,"Exception represents conditions a program should handle, while Error (like OutOfMemoryError) represents serious JVM issues that should not be caught in normal code."
+What are examples of checked exceptions?,"IOException, SQLException, FileNotFoundException, ClassNotFoundException, InterruptedException — all must be caught or declared."
+What are examples of unchecked exceptions?,"ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException, IllegalArgumentException — these result from logic or programming errors."
+What is try-catch used for?,try defines code to monitor for exceptions; catch handles the thrown exceptions. Multiple catch blocks can target different types of exceptions.
+Can a try block exist without a catch block?,"Yes, if it has a finally block. try-finally is valid when resources need cleanup even if no explicit catch is used."
+What is the finally block used for?,"finally executes code regardless of whether an exception occurs. It’s ideal for resource cleanup (closing files, releasing locks, etc.)."
+What happens if both catch and finally contain return statements?,"The return in finally overrides the one in catch or try, though it’s considered bad practice as it makes code harder to follow."
+What is the throw keyword?,throw manually triggers an exception. Example: throw new IllegalArgumentException('Invalid input');
+What is the throws keyword?,throws declares exceptions a method can propagate to callers. Example: void readFile() throws IOException { ... }
+What is the difference between throw and throws?,throw is used inside methods to generate an exception; throws is part of a method signature declaring possible exceptions.
+Can we re-throw an exception?,"Yes, using throw again inside a catch block allows propagating the caught exception to higher layers."
+What happens if an exception is not caught?,The JVM’s default handler prints a stack trace and terminates the program abruptly.
+Can you have multiple catch blocks for one try?,"Yes. They must be ordered from most specific to most general, or else a compile-time error occurs."
+What is a multi-catch block?,"Introduced in Java 7, it allows catching multiple exception types in one block: catch (IOException | SQLException e)."
+Can we catch multiple exceptions with one catch?,"Yes, by using a multi-catch syntax with the pipe (|) operator, ensuring the exception variable is final inside that block."
+What is the base class for all exceptions?,java.lang.Throwable is the root class for all errors and exceptions in Java.
+What are user-defined exceptions?,Custom exceptions created by extending Exception or RuntimeException to represent domain-specific error conditions.
+How do you create a custom checked exception?,Extend Exception and provide constructors. Example: class InvalidAgeException extends Exception { InvalidAgeException(String msg){ super(msg);} }.
+How do you create a custom unchecked exception?,Extend RuntimeException instead of Exception for unchecked behavior.
+Why use custom exceptions?,"They make error handling clearer by representing business-specific issues, improving readability and debugging."
+What is try-with-resources in Java?,"Introduced in Java 7, it automatically closes resources that implement AutoCloseable after execution of the try block."
+Example of try-with-resources?,try (BufferedReader br = new BufferedReader(new FileReader('a.txt'))) { br.readLine(); } automatically closes br.
+What is AutoCloseable interface?,"AutoCloseable defines a close() method for objects that can be closed automatically in try-with-resources, such as streams or connections."
+What happens if an exception is thrown inside a try-with-resources block?,"The primary exception propagates, and any close() failures are suppressed and can be retrieved via getSuppressed()."
+Can we nest try-catch blocks?,"Yes, nested try-catch allows handling inner and outer exceptions separately in complex operations."
+Can finally block throw an exception?,"Yes, but it’s discouraged. If it does, it suppresses any previous exceptions from try or catch."
+Can we have a try block inside another try block?,"Yes, nested try blocks are allowed and used when inner operations need separate handling."
+What is exception propagation?,"When an exception is not caught, it moves up the call stack until handled by a catch block or by JVM’s default handler."
+Can constructors throw exceptions?,"Yes, constructors can throw exceptions and must declare them using the throws clause."
+What happens when both try and finally throw exceptions?,"The exception in finally suppresses the one thrown in try; both are recorded, and you can access suppressed exceptions via getSuppressed()."
+What is the order of execution for try-catch-finally?,try → catch (if exception occurs) → finally. finally always executes whether or not an exception is caught.
+Can we have multiple finally blocks?,"No, only one finally block is allowed per try block."
+What is unreachable catch block error?,"Occurs when a catch block handles a superclass exception before a subclass one, making the latter unreachable."
+What is the difference between checked exceptions and runtime exceptions?,Checked exceptions enforce handling at compile time; runtime exceptions are unchecked and may be handled optionally.
+Why are runtime exceptions unchecked?,"Because they usually result from logic errors (e.g., divide by zero) that cannot be predicted or recovered programmatically."
+What are common runtime exceptions?,"NullPointerException, ArithmeticException, ArrayIndexOutOfBoundsException, ClassCastException, IllegalStateException."
+Can we handle errors in Java?,"Technically yes, by catching Error, but it’s discouraged since errors (like OutOfMemoryError) represent serious system problems."
+What is Exception Chaining?,"It allows wrapping one exception inside another using constructors like new IOException('msg', cause), preserving root cause details."
+What is getCause() method used for?,"getCause() returns the underlying reason for the exception, useful in chained exceptions to trace original failure."
+What is printStackTrace()?,"printStackTrace() prints the exception type, message, and stack trace to help debug where the error occurred."
+How do you get the message of an exception?,Use getMessage() to retrieve the description string passed to the exception’s constructor.
+What is difference between e.getMessage() and e.toString()?,"getMessage() returns only the detail message, while toString() returns the exception’s type and message combined."
+How do you log exceptions properly?,Use logging frameworks like java.util.logging or Log4j instead of printStackTrace() for maintainable and configurable error logging.
+What is the purpose of e.printStackTrace()?,It outputs exception details and call hierarchy to System.err; useful during debugging but should be replaced with logging in production.
+What is suppressed exception?,"In try-with-resources, if both main and closing exceptions occur, the closing one is suppressed and attached to the main exception."
+Can you throw multiple exceptions in one method?,"Yes, a method can declare multiple exceptions separated by commas in its throws clause."
+"What is the difference between final, finally, and finalize()?","final is a modifier, finally handles cleanup in try-catch, and finalize() is a deprecated method called before GC."
+Can we use try without catch or finally?,"Only with try-with-resources, where the resource ensures automatic cleanup without explicit catch/finally."
+What is AssertionError?,"AssertionError is thrown when an assert statement fails; it indicates a developer logic bug, not a recoverable condition."
+What is an uncaught exception handler?,It’s a Thread-level mechanism to handle exceptions not caught anywhere else: Thread.setDefaultUncaughtExceptionHandler().
+How does the JVM handle uncaught exceptions?,"If no catch block handles the exception, the JVM’s default handler prints the stack trace and terminates the program."
+What are best practices for exception handling?,"Catch only specific exceptions, avoid empty catches, log exceptions, use custom ones for business logic, and never use exceptions for flow control."
+Why should you not catch generic Exception?,"It hides real causes, catches unexpected errors, and makes debugging difficult; catch the most specific type possible."
+Can exceptions be used for normal control flow?,"No, exceptions are costly and intended for abnormal conditions, not regular program logic."
+How can you handle multiple resources safely?,Use try-with-resources with multiple AutoCloseable objects separated by semicolons.
+What is the difference between runtime error and compile-time error?,Compile-time errors are syntax issues detected by the compiler; runtime errors are exceptions or errors thrown during program execution.
+Why should finally not contain return statements?,"A return in finally overrides returns from try or catch, causing confusion and masking exceptions, leading to hard-to-trace bugs."
+What is the Java Collections Framework (JCF)?,"JCF is a unified architecture that provides interfaces, classes, and algorithms for storing and manipulating groups of objects, enabling reusable and efficient data structures."
+Why was the Collections Framework introduced?,"It standardized data structure implementations, improved code reuse, interoperability, and performance, replacing older classes like Vector and Hashtable."
+What are the main interfaces of the Collections Framework?,"Core interfaces include Collection, List, Set, Queue, Deque, and Map (though Map is not a true Collection)."
+What is the difference between Collection and Collections?,"Collection is an interface; Collections is a utility class containing static methods like sort(), reverse(), and synchronizedList()."
+What are the main classes that implement List interface?,"ArrayList, LinkedList, and Vector implement List. They preserve order and allow duplicates."
+What are the main classes that implement Set interface?,"HashSet, LinkedHashSet, and TreeSet implement Set. They store unique elements."
+What are the main classes that implement Map interface?,"HashMap, LinkedHashMap, TreeMap, and Hashtable implement Map for key–value storage."
+What is the difference between List and Set?,List preserves insertion order and allows duplicates; Set disallows duplicates and may or may not preserve order.
+What is the difference between HashMap and Hashtable?,HashMap is non-synchronized and allows one null key and multiple null values; Hashtable is synchronized and disallows nulls.
+What is the difference between HashMap and TreeMap?,HashMap is unordered and uses hashing; TreeMap is sorted by natural or custom order using a Red-Black tree.
+What is the difference between HashSet and LinkedHashSet?,"Both disallow duplicates, but LinkedHashSet maintains insertion order using a linked list internally."
+What is a Queue in Java?,Queue stores elements in FIFO order. Common implementations are LinkedList and PriorityQueue.
+What is a Deque?,Deque (double-ended queue) allows insertion and deletion at both ends. Implemented by ArrayDeque and LinkedList.
+What is the difference between Stack and Queue?,Stack is LIFO (last-in-first-out); Queue is FIFO (first-in-first-out).
+What is the difference between ArrayList and LinkedList?,ArrayList uses dynamic arrays with O(1) random access; LinkedList uses nodes with O(1) insertion/deletion at ends but O(n) access time.
+When should you use ArrayList over LinkedList?,When you need fast random access and fewer insertions in the middle.
+When should you use LinkedList over ArrayList?,When frequent insertions and deletions occur at ends or middle.
+What is Vector and why is it legacy?,Vector is a synchronized growable array used before JCF. It’s slower and replaced by ArrayList.
+What is Stack in Java?,"Stack extends Vector and provides LIFO operations like push(), pop(), and peek()."
+What replaced Stack in modern Java?,Use Deque (ArrayDeque) instead of Stack for better performance and design.
+What is the load factor in HashMap?,Load factor (default 0.75) determines when to resize; resizing occurs when size exceeds capacity × load factor.
+What is hashing?,Hashing converts keys to hash codes using hashCode(); used to index storage locations in hash-based collections.
+What happens when two keys have the same hash code?,A collision occurs. HashMap stores entries in linked lists or trees in the same bucket and resolves using equals().
+How does HashMap handle collisions after Java 8?,"It converts long linked lists in buckets to balanced trees (TreeNodes) when collisions exceed a threshold, improving lookup to O(log n)."
+What is rehashing?,Rehashing redistributes entries when HashMap expands its capacity to maintain performance after resizing.
+What is the difference between Comparable and Comparator?,Comparable defines natural order via compareTo(); Comparator defines external custom order via compare().
+Can you use null keys in HashMap?,"Yes, one null key is allowed and always stored in bucket 0."
+Can you use null keys in TreeMap?,"No, TreeMap doesn’t allow null keys because comparison operations require ordering."
+What is the difference between HashMap and ConcurrentHashMap?,"ConcurrentHashMap is thread-safe using segment locking and allows concurrent reads/writes, unlike HashMap."
+What is ConcurrentModificationException?,Thrown when a collection is modified while iterating using an iterator not supporting concurrent modification.
+How to avoid ConcurrentModificationException?,"Use concurrent collections (ConcurrentHashMap, CopyOnWriteArrayList) or iterator.remove() instead of modifying during iteration."
+What is CopyOnWriteArrayList?,"A thread-safe variant of ArrayList where modifications create a new copy of the list, suitable for frequent reads and rare writes."
+What is BlockingQueue?,BlockingQueue provides thread-safe producer-consumer queues where operations block when the queue is full or empty.
+What is PriorityQueue?,PriorityQueue orders elements based on natural order or a custom Comparator instead of insertion order.
+Can PriorityQueue store null values?,"No, PriorityQueue doesn’t allow null elements."
+What are fail-fast iterators?,Iterators that immediately throw ConcurrentModificationException when the collection is structurally modified during iteration.
+What are fail-safe iterators?,"Iterators that work on a clone of the collection, allowing modification during iteration (used in concurrent collections)."
+What is EnumSet?,"A specialized Set for enum types; it’s high-performance and memory-efficient, implemented internally as bit vectors."
+What is EnumMap?,"A Map specialized for enum keys, faster than HashMap because it uses ordinal indexing."
+What is the difference between TreeSet and HashSet?,TreeSet maintains sorted order using a Red-Black tree; HashSet uses hashing and doesn’t guarantee order.
+How is TreeSet implemented internally?,TreeSet is backed by a TreeMap where each element is stored as a key with a dummy value.
+What are synchronized collections?,Wrappers from Collections.synchronizedList() or synchronizedMap() providing basic thread safety using intrinsic locks.
+What are unmodifiable collections?,Immutable collections created using Collections.unmodifiableList(); they throw UnsupportedOperationException on modification.
+How to sort a List in Java?,Use Collections.sort(list) for natural order or list.sort(Comparator) for custom order.
+How to shuffle a List randomly?,Use Collections.shuffle(list) to randomize element order.
+How to find maximum and minimum in a collection?,Use Collections.max() and Collections.min() based on natural ordering or a Comparator.
+What are generics in Java?,"Generics allow type parameters for classes and methods, providing compile-time type safety and reducing casting."
+What are advantages of generics?,"They ensure type safety, eliminate ClassCastException, and improve code readability and reusability."
+How do you declare a generic class?,class Box<T> { T value; void set(T v){value=v;} T get(){return value;} } where T is a type parameter.
+What is a generic method?,A method that defines its own type parameters. Example: <T> void print(T data){ System.out.println(data); }.
+What is a thread in Java?,A thread is a lightweight unit of execution within a process that runs independently. Multiple threads share the same memory space.
+What is multithreading?,Multithreading enables concurrent execution of two or more threads to improve CPU utilization and responsiveness.
+What are the main benefits of multithreading?,"Improved performance, efficient CPU use, responsive UIs, and simplified background task handling."
+What is the difference between process and thread?,A process has its own memory; threads share process memory but have independent execution paths.
+How do you create a thread in Java?,By extending the Thread class or implementing the Runnable interface and passing it to a Thread object.
+Which method starts a thread?,"start() begins execution in a new call stack, invoking run() internally."
+What happens if you call run() directly?,The code runs in the same thread rather than creating a new one.
+Can a thread be restarted?,"No, once a thread finishes execution, it cannot be restarted; a new thread must be created."
+What are thread states?,"New, Runnable, Running, Blocked/Waiting, and Terminated are the five main thread states."
+How do you check if a thread is alive?,Use isAlive() to check if the thread is still running or not.
+How do you pause a thread?,"Use Thread.sleep(milliseconds), which temporarily halts the thread."
+What is join() in threads?,join() waits for a thread to finish before continuing execution of the calling thread.
+What is the yield() method?,yield() hints the scheduler to pause the current thread and allow others of equal priority to execute.
+What is the difference between sleep() and wait()?,"sleep() is a static method that pauses the thread without releasing locks, while wait() releases the monitor lock."
+What is synchronization in Java?,Synchronization prevents multiple threads from accessing shared resources simultaneously to avoid inconsistency.
+How do you synchronize a method?,Use the synchronized keyword: synchronized void display(){} ensures only one thread accesses it at a time.
+What is a synchronized block?,A block of code synchronized on a specific object monitor: synchronized(obj){ ... }. It’s more efficient than synchronizing whole methods.
+What is an object’s monitor in Java?,A monitor is a synchronization construct that allows threads to have mutually exclusive access to an object.
+What are intrinsic locks?,Each object has an intrinsic lock used to coordinate synchronized access among threads.
+What are thread priorities?,"Each thread has a priority (1 to 10) suggesting the scheduler which thread to prefer; however, scheduling is platform dependent."
+What is the default priority of a thread?,The default thread priority is 5 (NORM_PRIORITY).
+What is a daemon thread?,A background service thread that runs until all user threads finish. Examples: GC or timer threads.
+How do you create a daemon thread?,Call setDaemon(true) before starting the thread.
+Can you make a running thread daemon?,"No, you must set it before calling start()."
+What happens if all user threads finish but daemon threads remain?,"JVM terminates automatically, stopping all daemon threads."
+What is the difference between user and daemon thread?,User threads keep the JVM alive; daemon threads do not.
+What is thread safety?,Thread safety ensures shared data is accessed or modified by multiple threads without causing race conditions.
+What is a race condition?,"When two or more threads modify shared data simultaneously, leading to unpredictable results."
+How do you prevent race conditions?,"Use synchronization, volatile variables, or concurrent data structures."
+What is volatile keyword?,volatile ensures visibility and ordering — changes to a variable are immediately visible to all threads.
+What is the difference between volatile and synchronized?,volatile ensures visibility; synchronized ensures both visibility and atomicity.
+What is deadlock?,Deadlock occurs when two or more threads wait indefinitely for locks held by each other.
+How do you prevent deadlock?,"Avoid nested locks, use consistent lock ordering, and apply timeout with tryLock()."
+What is livelock?,"Threads keep responding to each other’s actions but make no progress, continually changing state."
+What is starvation?,Starvation happens when a thread never gets CPU time or resources due to lower priority.
+What is reentrant lock?,ReentrantLock allows a thread to reacquire its own lock without blocking itself.
+How does ReentrantLock differ from synchronized?,"It provides tryLock(), fairness policy, interruptible locks, and more flexibility than synchronized blocks."
+What is ReadWriteLock?,"It maintains one write lock and multiple read locks, allowing concurrent reads but exclusive writes."
+What is tryLock()?,A method in Lock interface that tries to acquire a lock without blocking indefinitely.
+What is Condition interface?,"Similar to Object’s wait/notify, but more flexible, allowing multiple condition queues per lock."
+What are atomic classes?,"Classes in java.util.concurrent.atomic (like AtomicInteger) provide lock-free, thread-safe operations."
+What is Compare-and-Swap (CAS)?,CAS is a non-blocking algorithm used by atomic classes to update variables only if their current value matches an expected value.
+What is Executor framework?,"Introduced in Java 5, it manages thread creation and scheduling via pools, abstracting low-level thread handling."
+What is ExecutorService?,"A sub-interface of Executor that provides methods to manage thread pools, submit tasks, and control shutdown."
+What are callable and future?,Callable returns a value and can throw exceptions; Future represents the result of an asynchronous computation.
+How is Callable different from Runnable?,"Runnable doesn’t return a value or throw checked exceptions, whereas Callable does."
+How do you submit tasks using ExecutorService?,Use submit() for Callable/Runnable or execute() for Runnable.
+How do you shut down ExecutorService?,Call shutdown() for graceful termination or shutdownNow() to stop immediately.
+What is ThreadPoolExecutor?,"A configurable thread-pool implementation controlling core size, queue size, and rejection policies."
+What is ScheduledExecutorService?,"Executes periodic or delayed tasks, replacing Timer/TimerTask."
+What is ForkJoinPool?,A framework for parallel computation that divides tasks into subtasks using work-stealing algorithms.
+What is CompletableFuture?,"Introduced in Java 8, it supports asynchronous programming with chaining, composition, and callbacks."
+How do you handle exceptions in CompletableFuture?,"Using exceptionally(), handle(), or whenComplete() methods."
+What is synchronization biasing?,A JVM optimization for uncontended locks to reduce synchronization overhead.
+What is ThreadLocal?,"ThreadLocal stores variables accessible only by the current thread, providing isolation without synchronization."
+How do you remove data from ThreadLocal?,"Call remove() to avoid memory leaks, especially in thread pools."
+What is a thread dump?,"A snapshot of all thread states and stack traces, used for diagnosing deadlocks and performance issues."
+How do you get a thread dump?,"Use jstack, kill -3 <pid>, or tools like VisualVM."
+What is synchronization block granularity?,"The finer the synchronized section, the less contention but the higher overhead for acquiring/releasing locks."
+What is a concurrent collection?,"Collections in java.util.concurrent like ConcurrentHashMap, CopyOnWriteArrayList, designed for thread-safe access."
+How does ConcurrentHashMap ensure thread safety?,Uses segmented locks (Java 7) or synchronized blocks with CAS (Java 8+) for high concurrency.
+What is BlockingDeque?,A thread-safe double-ended queue supporting blocking operations at both ends.
+What is CountDownLatch?,Synchronization aid that allows one or more threads to wait until a set of operations complete.
+What is CyclicBarrier?,Similar to CountDownLatch but reusable; threads wait until a common barrier point is reached.
+What is Phaser?,An advanced synchronization barrier supporting dynamic registration of parties.
+What is Semaphore?,A concurrency control that maintains a permit count to limit access to shared resources.
+What is Exchanger?,A concurrency tool where two threads can exchange objects safely at a synchronization point.
+What is ThreadGroup?,"A way to group multiple threads for management, now mostly deprecated in favor of ExecutorService."
+What is parallel stream?,A stream that divides its data source into subparts and processes them in parallel using ForkJoinPool.
+What are differences between synchronized and concurrent collections?,Synchronized collections block entire structures; concurrent ones allow better parallel access through fine-grained locking.
+What is happens-before relationship?,A Java Memory Model rule ensuring that writes by one thread are visible to another when proper synchronization occurs.
+What are best practices for thread synchronization?,"Keep critical sections small, avoid nested locks, use concurrent utilities, and prefer immutable objects."
+Why is immutability useful in concurrency?,"Immutable objects are inherently thread-safe, eliminating synchronization overhead."
+What is busy waiting?,"Continuously checking a condition without yielding or sleeping, wasting CPU cycles."
+What is spin lock?,"A low-level lock where a thread repeatedly checks lock availability instead of blocking, suitable for very short waits."
+What is the difference between parallelism and concurrency?,Concurrency handles multiple tasks in progress; parallelism executes multiple tasks simultaneously.
+What is ThreadFactory?,"An interface used to customize thread creation within thread pools, e.g., setting names or priorities."
+What is RejectedExecutionHandler?,Defines how ExecutorService reacts when new tasks are submitted but the queue is full or shutting down.
+What is Thread.State enumeration?,"Enum representing all possible thread states: NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING, TERMINATED."
+How can you make a class thread-safe?,"Use synchronization, volatile fields, immutable design, or concurrent utilities."
+What is lock contention?,"Occurs when multiple threads compete for the same lock, reducing performance due to waiting."
+How to minimize lock contention?,"Reduce synchronized scope, use ReadWriteLock, or adopt lock-free data structures."
+What are non-blocking algorithms?,Algorithms that use atomic operations like CAS instead of locks for synchronization.
+What is Java I/O?,"Java I/O (Input/Output) is a mechanism that allows reading data from sources and writing data to destinations such as files, consoles, or networks."
+What are streams in Java?,"Streams represent a continuous flow of data. Input streams read data, and output streams write data."
+What are the two types of streams in Java?,"Byte streams handle binary data, and character streams handle text data using encoding and decoding."
+What is the difference between byte and character streams?,"Byte streams (InputStream/OutputStream) work with bytes, while character streams (Reader/Writer) work with Unicode characters."
+What are the base classes of Java I/O?,"The base classes are InputStream, OutputStream, Reader, and Writer."
+What is InputStream in Java?,An abstract class representing an input stream of bytes; it’s the superclass for all byte-based input streams.
+What is OutputStream in Java?,"An abstract class representing an output stream of bytes, the superclass of all byte output classes."
+What is FileInputStream used for?,"FileInputStream reads bytes from a file, typically for binary data like images or videos."
+What is FileOutputStream used for?,FileOutputStream writes raw bytes to a file.
+What is the difference between FileReader and FileInputStream?,"FileReader reads text data (characters), while FileInputStream reads binary data (bytes)."
+What is BufferedReader?,BufferedReader reads text from a character stream efficiently by buffering input to reduce read operations.
+What is BufferedWriter?,BufferedWriter writes text efficiently by buffering characters before sending them to the output stream.
+What is PrintWriter?,"PrintWriter provides convenient methods for formatted text output, such as println(), print(), and printf()."
+What is the purpose of flush()?,flush() forces any buffered output to be written immediately to the destination.
+What happens if you don’t close a stream?,"Not closing a stream may cause resource leaks, file corruption, or data loss due to unflushed buffers."
+What is try-with-resources?,"Introduced in Java 7, it automatically closes resources that implement AutoCloseable after use."
+Give an example of try-with-resources.,try (BufferedReader br = new BufferedReader(new FileReader('file.txt'))) { ... } automatically closes the reader.
+What is File class in Java?,java.io.File represents a file or directory pathname in the filesystem.
+Can File class read or write data?,"No, File only represents metadata; use streams or readers/writers for actual data operations."
+How do you check if a file exists?,Use file.exists() method from the File class.
+How do you create a new file in Java?,Use file.createNewFile() which returns true if the file was successfully created.
+How do you delete a file?,Use file.delete() or Files.delete(path) from NIO package.
+How to list files in a directory?,Use file.listFiles() to get an array of File objects in a directory.
+What is RandomAccessFile?,It allows reading and writing to a file at specific positions using a file pointer.
+What are the main methods of RandomAccessFile?,"read(), write(), seek(), and getFilePointer() for file navigation and data access."
+What is FileDescriptor?,"A handle representing an open file, used internally by FileInputStream and FileOutputStream."
+What is FileWriter used for?,"FileWriter writes character data directly to files, typically for text content."
+What is InputStreamReader?,It converts byte streams into character streams using a specific charset.
+What is OutputStreamWriter?,"It converts character data into bytes for writing, handling encoding automatically."
+What is the default encoding in Java I/O?,"It depends on the operating system and locale, commonly UTF-8 in modern systems."
+How to specify encoding in Java I/O?,"Pass the charset name or object: new InputStreamReader(new FileInputStream('a.txt'), 'UTF-8')."
+What is the difference between Reader and BufferedReader?,"Reader is basic, reading one character at a time; BufferedReader reads chunks for efficiency."
+What is the purpose of the skip() method?,It skips a specified number of bytes or characters in a stream.
+How to read one line from a file?,Use BufferedReader’s readLine() method.
+What is the difference between read() and readLine()?,read() reads one character; readLine() reads a full line terminated by newline.
+How do you write data to a file?,"Use FileWriter, PrintWriter, or BufferedWriter with write() or println() methods."
+How to append data to an existing file?,"Pass true to FileWriter constructor: new FileWriter('data.txt', true)."
+What is DataInputStream used for?,"Reads Java primitive data types (int, double, boolean, etc.) in a portable binary format."
+What is DataOutputStream used for?,Writes Java primitive types in a platform-independent way for binary I/O.
+What is ObjectOutputStream?,Writes Java objects to an output stream for serialization.
+What is ObjectInputStream?,Reads serialized objects from a stream and reconstructs them in memory.
+What is serialization in Java?,Serialization is the process of converting an object’s state into a byte stream for storage or transfer.
+What is deserialization?,The reverse of serialization — reconstructing an object from its byte representation.
+Which interface must a class implement for serialization?,java.io.Serializable interface.
+What is transient keyword?,Marks a variable as non-serializable; it is skipped during serialization.
+What is serialVersionUID?,A unique identifier for Serializable classes used during deserialization to verify compatibility.
+What happens if serialVersionUID mismatches?,InvalidClassException is thrown when class and serialized object versions differ.
+Can static fields be serialized?,"No, static fields belong to the class, not the instance, so they are not serialized."
+Can constructors be serialized?,"No, constructors are not serialized; object reconstruction happens using reflection."
+How do you serialize an object?,Use ObjectOutputStream: oos.writeObject(obj).
+How do you deserialize an object?,Use ObjectInputStream: obj = (MyClass)oos.readObject().
+What is NotSerializableException?,Thrown when trying to serialize an object that doesn’t implement Serializable.
+What is Externalizable interface?,Extends Serializable but requires manual implementation of readExternal() and writeExternal() for custom serialization.
+What is the difference between Serializable and Externalizable?,Serializable handles default serialization; Externalizable gives full control over read/write logic.
+What is BufferedInputStream?,A stream that buffers input bytes to improve performance by minimizing disk access.
+What is BufferedOutputStream?,Buffers output bytes before writing them to disk to enhance efficiency.
+What is PushbackInputStream?,"Allows unread bytes to be “pushed back” into the stream, useful for parsers."
+What is SequenceInputStream?,Combines multiple InputStreams into one continuous stream.
+What is FilterInputStream?,"A wrapper stream that filters data from another input stream, used as a base for decorators like BufferedInputStream."
+What is a file channel?,FileChannel (in java.nio.channels) provides efficient file I/O using direct buffers and memory mapping.
+What is the difference between I/O Streams and NIO Channels?,Streams are blocking; NIO Channels can be non-blocking and support multiplexed I/O operations.
+What are Buffers in NIO?,Buffers are containers that hold data for reading or writing through Channels.
+What is FileLock?,FileLock provides exclusive or shared access to a region of a file to prevent concurrent modifications.
+What is Path in NIO package?,Path represents a file or directory location in a filesystem using the java.nio.file package.
+What is Files utility class?,"java.nio.file.Files provides static methods for file operations like copy(), move(), readAllLines(), and write()."
+How do you copy a file using Files class?,"Files.copy(sourcePath, destPath, StandardCopyOption.REPLACE_EXISTING)."
+How do you move or rename a file?,Use Files.move() with source and target paths.
+How do you delete a file with NIO?,Files.delete(path) deletes a file or throws NoSuchFileException if missing.
+What is FileVisitor interface?,Used with Files.walkFileTree() to recursively traverse directories and perform operations.
+What is DirectoryStream?,Provides efficient iteration over directory contents without loading all entries at once.
+How do you get file size?,Use file.length() or Files.size(path).
+What is the difference between absolute and relative paths?,Absolute paths specify full file location; relative paths are based on the current working directory.
+How do you check if a file is readable or writable?,Use file.canRead() and file.canWrite().
+What is EOFException?,Thrown when the end of a file or stream is reached unexpectedly during input.
+What is FileNotFoundException?,Thrown when trying to access a file that does not exist or cannot be opened.
+What is IOException?,"The superclass for general I/O errors like file not found, permission denied, or disk errors."
+What is StreamTokenizer?,"Breaks input streams into tokens (words, numbers) for parsing structured text."
+What is PipedInputStream/PipedOutputStream?,Used for inter-thread communication by connecting output of one thread to input of another.
+What is Console class?,Provides methods to read text input and print formatted output directly from the console.
+What is Scanner class used for?,Reads and parses text input using delimiters or regular expressions.
+What is PrintStream?,"Output stream supporting formatted printing, used by System.out."
+"What is System.in, System.out, and System.err?","Standard input, output, and error streams connected to console."
+What is object graph serialization?,The process of serializing all referenced objects recursively from a root object.
+Can you serialize an object with circular references?,"Yes, Java serialization handles cyclic references automatically."
+What is the impact of large object graphs on serialization?,It increases memory usage and slows performance; externalization or custom serialization may help.
+What are serialization best practices?,"Declare serialVersionUID, mark sensitive fields transient, use custom writeObject() for control."
+Can enums be serialized?,"Yes, enum constants are inherently serializable."
+What is compression stream?,Streams like GZIPInputStream and GZIPOutputStream compress or decompress data.
+What is the use of ZipInputStream?,Reads ZIP file entries and extracts compressed data.
+What is the use of ZipOutputStream?,Writes data into a ZIP file by creating new ZipEntry objects.
+How do you handle file encoding errors?,"Use explicit Charset handling (UTF-8, ISO-8859-1) and catch MalformedInputException."
+What is ObjectStreamField?,"Represents a field descriptor for a Serializable class, controlling which fields are serialized."
+What is stream chaining?,"Combining multiple streams for layered functionality (e.g., FileInputStream → BufferedInputStream → DataInputStream)."
+What are the drawbacks of traditional I/O?,"Blocking behavior, high overhead, and less efficient resource management compared to NIO."
+What is memory-mapped file I/O?,Maps file content directly to memory for fast random access using FileChannel.map().
+What is AsynchronousFileChannel?,Supports non-blocking read/write operations with callbacks using Java NIO.2.
+What is FileTime?,"Represents file timestamps (creation, access, modification) in the NIO API."
+What are symbolic and hard links?,Symbolic links point to paths; hard links point directly to file data. Managed with Files.createSymbolicLink().
+What is WatchService API?,"Monitors directories for changes (create, modify, delete) asynchronously in NIO."
+What are best practices in Java I/O?,"Always close streams, use try-with-resources, prefer buffered streams, and handle exceptions gracefully."
+What is the Java Virtual Machine (JVM)?,JVM is an abstract machine that executes Java bytecode. It provides platform independence by interpreting compiled Java programs for the target OS.
+What are the main components of JVM?,"The JVM consists of Class Loader, Runtime Data Areas, and Execution Engine."
+What is the role of the Class Loader?,The Class Loader loads .class files into JVM memory and organizes them into the runtime environment.
+What are the types of Class Loaders in Java?,"Bootstrap, Extension (Platform), and Application (System) Class Loaders are the main types."
+What is the Bootstrap Class Loader?,"It is part of the JVM, implemented in native code, and loads core Java classes from the JRE’s lib directory."
+What is the Extension or Platform Class Loader?,It loads classes from the extension directories (lib/ext) or modules in modern Java versions.
+What is the System Class Loader?,It loads classes from the classpath defined by the user (environment variables or command line).
+What is a custom Class Loader?,A user-defined loader extending ClassLoader to load classes dynamically from custom locations or encrypted sources.
+What is the parent delegation model?,Class loaders delegate loading requests to their parent first to avoid duplicate class definitions.
+What is the difference between JVM and JRE?,"JVM executes Java bytecode, while JRE includes JVM and standard libraries required to run Java programs."
+What is the difference between JRE and JDK?,JRE runs Java applications; JDK includes JRE plus tools like compiler (javac) for developing Java applications.
+What is the JIT compiler?,The Just-In-Time (JIT) compiler converts bytecode into native machine code at runtime to improve performance.
+What are the types of JIT compilers?,"Client (C1) and Server (C2) compilers, with different optimizations for startup vs long-running performance."
+What is AOT compilation?,"Ahead-Of-Time compilation converts bytecode to native code before execution, improving startup speed (used in GraalVM)."
+What are the main memory areas in JVM?,"Heap, Stack, Method Area (Metaspace), PC Register, and Native Method Stack."
+What is the Java Heap?,Heap is a shared memory area where objects and arrays are allocated dynamically.
+What are the parts of the Heap?,Young Generation (Eden + Survivor spaces) and Old Generation (Tenured space).
+What is the Young Generation?,It holds newly created objects; frequent minor garbage collections occur here.
+What is the Old Generation?,It stores long-lived objects that survived multiple garbage collection cycles.
+What is the Metaspace?,Metaspace (replacing PermGen in Java 8) stores class metadata and is allocated in native memory.
+What is the stack in JVM?,"Each thread has its own stack storing method calls, local variables, and partial results."
+What is a stack frame?,"A stack frame contains local variables, operand stack, and reference to constant pool for each method call."
+What is the program counter (PC) register?,Each thread has a PC register storing the address of the current instruction being executed.
+What is the native method stack?,It holds native (non-Java) method calls executed using JNI.
+What is garbage collection (GC)?,GC is an automatic process that reclaims memory used by objects no longer reachable by any reference.
+What are GC roots?,"GC roots are references from thread stacks, static variables, and JNI that determine object reachability."
+What is reachability analysis?,It is the algorithm the JVM uses to find live objects by tracing from GC roots.
+What are strong references?,Strong references prevent an object from being garbage collected as long as they exist.
+What are weak references?,"Objects with only weak references are eligible for GC, useful for caches."
+What are soft references?,"Soft references are collected only when memory is low, suitable for memory-sensitive caches."
+What are phantom references?,"Phantom references allow cleanup actions before finalization, used with ReferenceQueue."
+What is the finalize() method?,"A deprecated method called before GC, formerly used for cleanup, replaced by try-with-resources and Cleaner API."
+What is the Cleaner API?,"Introduced in Java 9, it provides controlled cleanup of resources instead of finalize()."
+What are the main garbage collectors in Java?,"Serial, Parallel, CMS (deprecated), G1, and ZGC."
+What is the Serial GC?,"A simple stop-the-world collector using a single thread, suitable for small applications."
+What is the Parallel GC?,Uses multiple threads for young and old generation collections to improve throughput.
+What is CMS GC?,Concurrent Mark-Sweep collects the old generation concurrently but is deprecated in Java 14.
+What is G1 GC?,"Garbage-First Collector divides heap into regions, performing incremental parallel collection with minimal pauses."
+What is ZGC?,A low-latency collector designed for large heaps with pause times under 10ms.
+What is Shenandoah GC?,"A concurrent low-pause garbage collector by Red Hat, focusing on scalability."
+What is the difference between minor and major GC?,Minor GC cleans young generation; major (full) GC cleans both young and old generations.
+What triggers garbage collection?,"Heap usage thresholds, explicit System.gc() calls, or JVM heuristics trigger GC cycles."
+What are stop-the-world events?,Pauses during GC when all application threads stop to allow collection safely.
+How to monitor garbage collection?,"Use JVM flags (-verbose:gc, -XX:+PrintGCDetails) or tools like jconsole, jvisualvm, or GC logs."
+What is OutOfMemoryError?,Thrown when the JVM cannot allocate more memory for objects due to insufficient heap space.
+What is StackOverflowError?,"Occurs when the stack size exceeds its limit, typically due to infinite recursion."
+What is heap dump?,A snapshot of heap memory for analyzing memory leaks using tools like Eclipse MAT or VisualVM.
+What is thread dump?,A snapshot of thread states and stack traces for diagnosing deadlocks and performance issues.
+What are JVM arguments?,"Options passed using -X or -XX flags to configure memory, GC, or JIT settings."
+What is class metadata?,"Information about class structure (fields, methods, etc.) stored in Metaspace."
+What is reflection in Java?,"Reflection allows runtime inspection and modification of classes, fields, methods, and constructors."
+Which package provides reflection API?,"java.lang.reflect contains classes like Field, Method, Constructor, and Modifier."
+How do you obtain a Class object?,"Use `Class.forName()`, `obj.getClass()`, or `TypeName.class`."
+How do you get all methods of a class?,"Use `Class.getDeclaredMethods()` to retrieve all declared methods, including private ones."
+How do you invoke a method using reflection?,"Call `method.invoke(object, args...)` after setting accessible if necessary."
+How do you access private fields using reflection?,Use `field.setAccessible(true)` to bypass access checks (discouraged for security reasons).
+What is the use of Constructor class?,It represents a class constructor and allows creating new instances dynamically via `newInstance()`.
+What is the purpose of Method class?,It provides metadata about a method and allows invoking it reflectively.
+What is Annotation in Java?,Annotations provide metadata for code and can be processed at compile-time or runtime.
+What are built-in Java annotations?,"@Override, @Deprecated, @SuppressWarnings, @FunctionalInterface are common built-ins."
+What is a custom annotation?,"User-defined annotation created using @interface, used for marking custom metadata."
+What are meta-annotations?,"Annotations applied to other annotations like @Target, @Retention, @Documented, and @Inherited."
+What is RetentionPolicy?,"Specifies how long an annotation is retained: SOURCE, CLASS, or RUNTIME."
+What is @Target used for?,"Defines valid locations (methods, fields, classes, etc.) where an annotation can be applied."
+What is @Inherited annotation?,Allows subclasses to inherit annotations from parent classes.
+What is @Repeatable annotation?,Allows applying the same annotation multiple times to the same element.
+What is dynamic class loading?,Loading a class at runtime using Class.forName() or custom class loaders.
+What is dynamic proxy in Java?,A runtime-generated proxy class that implements interfaces and intercepts method calls (java.lang.reflect.Proxy).
+What is MethodHandle?,"A low-level mechanism for dynamic invocation, introduced in Java 7 for better performance than reflection."
+What is the difference between reflection and MethodHandle?,Reflection is slower and more flexible; MethodHandle is faster and type-safe.
+What is the Java Memory Model (JMM)?,"Defines how threads interact through memory, ensuring visibility and ordering of shared variables."
+What is instruction reordering?,Compiler or CPU rearranges instructions for optimization; JMM prevents harmful reorderings with synchronization and volatile.
+What is happens-before relationship?,Guarantees that memory writes by one thread are visible to another when a happens-before relation exists.
+What is escape analysis?,A JIT optimization that allocates short-lived objects on the stack instead of the heap when safe.
+What is object inlining?,A JVM optimization that embeds frequently used objects directly into their parent to reduce memory access overhead.
+What are JVM performance tuning parameters?,"Flags like -Xms, -Xmx (heap size), -XX:+UseG1GC, -XX:MaxMetaspaceSize for optimization."
+What are class loaders used for in frameworks?,"They allow loading modules, plugins, or dynamically generated classes at runtime (e.g., Tomcat, Spring)."
+What is class unloading?,JVM removes unused classes and metadata from Metaspace to reclaim memory.
+What is method area memory leak?,"Occurs when classes or loaders remain referenced, preventing their unloading and leading to Metaspace exhaustion."
+What is native memory?,"Memory outside the Java heap used by JVM internals, direct buffers, and JNI code."
+What are JNI methods?,Java Native Interface methods allow Java to interact with native code written in C/C++.
+What is reflection performance impact?,"Reflection bypasses optimizations and access checks, making it slower than direct method calls."
+How to optimize reflection performance?,"Cache reflected objects, use MethodHandle, or use compile-time annotation processing."
+What is annotation processing?,Compile-time tool (APT) for generating code or configuration based on annotations.
+What is instrumentation in Java?,A mechanism to modify bytecode at runtime using the java.lang.instrument package.
+What is JVMTI?,"Java Virtual Machine Tool Interface allows debugging, profiling, and monitoring JVM behavior at native level."
+What are Java agents?,Programs that instrument or monitor Java bytecode using premain() or agentmain() methods.
+What is HotSpot JVM?,The default JVM implementation by Oracle that provides JIT compilation and adaptive optimizations.
+What is GraalVM?,A high-performance JVM supporting polyglot execution and advanced AOT compilation.
+What is JVM sandboxing?,A security mechanism restricting untrusted code from accessing system resources beyond permission scope.
+What are performance profiling tools?,"Tools like VisualVM, JProfiler, Flight Recorder, and Mission Control analyze performance and memory usage."
+What is bytecode verification?,"JVM ensures bytecode safety by verifying type correctness, stack operations, and access rules before execution."
+What is class reloading?,"Reloading modified classes dynamically at runtime, useful in development and frameworks like Spring Boot DevTools."
+What is the difference between static and dynamic linking in JVM?,Static linking occurs at compile-time; dynamic linking resolves method and field references at runtime.
+What is the difference between interpreter and JIT in JVM?,Interpreter executes bytecode line by line; JIT compiles frequently executed code into native instructions for performance.
+What are performance tuning best practices?,"Monitor GC logs, allocate sufficient heap, use latest JVM, minimize object creation, and prefer G1 or ZGC for large apps."
+What is the significance of Java 8?,"Java 8 introduced major functional programming features like Lambda expressions, Streams API, Functional interfaces, and a new Date-Time API, revolutionizing how developers write concise and parallelizable code."
+What is a lambda expression?,A lambda expression is an anonymous function that provides a clear and concise way to represent a method using syntax like `(parameters) -> expression`.
+What are the benefits of using lambda expressions?,"Lambdas reduce boilerplate code, improve readability, and enable functional-style operations on collections and streams."
+What is the syntax of a lambda expression?,"Syntax: `(parameters) -> expression` or `(parameters) -> { statements }`. Example: `(x, y) -> x + y`."
+What are functional interfaces?,"Interfaces with exactly one abstract method, used as the basis for lambda expressions. Examples include Runnable, Callable, and Comparator."
+Which package contains functional interfaces?,"The java.util.function package includes standard functional interfaces like Function, Predicate, Consumer, and Supplier."
+What is the @FunctionalInterface annotation?,"It marks an interface as functional, ensuring it has only one abstract method and helping prevent accidental addition of new ones."
+What is Predicate in Java 8?,Predicate is a functional interface representing a boolean-valued function with a single input. Example: `Predicate<Integer> isEven = x -> x % 2 == 0;`. 
+What is Function interface in Java 8?,"Function<T, R> takes an argument of type T and returns a result of type R. Example: `Function<String, Integer> f = s -> s.length();`. "
+What is Supplier interface?,Supplier<T> provides results without taking input. Example: `Supplier<Double> random = () -> Math.random();`. 
+What is Consumer interface?,Consumer<T> accepts a single argument and performs an operation without returning a result. Example: `Consumer<String> c = s -> System.out.println(s);`. 
+What is BiFunction?,"BiFunction<T, U, R> represents a function taking two arguments and returning a result."
+What is UnaryOperator?,A specialized Function where input and output types are the same. Example: `UnaryOperator<Integer> square = x -> x * x;`. 
+What is BinaryOperator?,"A specialized BiFunction where all types are the same. Example: `BinaryOperator<Integer> sum = (a, b) -> a + b;`. "
+What is Stream API?,"The Stream API processes data in a declarative and functional style, supporting operations like filtering, mapping, and reducing collections."
+What are the types of Streams?,Streams can be sequential or parallel. Sequential streams process elements in order; parallel streams divide data across threads for faster processing.
+What is the difference between Collection and Stream?,Collection stores data; Stream processes data declaratively without modifying the original collection.
+How do you create a Stream?,"Streams can be created from collections (`list.stream()`), arrays (`Arrays.stream()`), or static factories (`Stream.of()`)."
+What is the difference between intermediate and terminal operations?,"Intermediate operations (like filter, map) return a new stream; terminal operations (like collect, forEach) produce a result or side-effect."
+What is a filter() operation?,filter() filters elements based on a predicate. Example: `stream.filter(x -> x > 10)`. 
+What is map() operation in streams?,map() transforms elements using a function. Example: `stream.map(String::toUpperCase)`. 
+What is flatMap() in Java 8?,flatMap() flattens nested streams into a single stream. Example: `list.stream().flatMap(Collection::stream)`. 
+What is reduce() operation?,"reduce() combines elements using an accumulator. Example: `stream.reduce(0, Integer::sum)`. "
+What is collect() method used for?,collect() is a terminal operation that accumulates stream elements into a collection or string. Example: `Collectors.toList()`. 
+What is forEach() in streams?,forEach() performs an action on each element. Example: `stream.forEach(System.out::println)`. 
+What are short-circuiting operations?,"Operations like anyMatch(), allMatch(), findFirst(), and limit() that terminate early once a condition is met."
+What is Optional in Java 8?,"Optional is a container that may or may not hold a non-null value, reducing NullPointerExceptions."
+How do you create an Optional object?,"Use `Optional.of(value)`, `Optional.empty()`, or `Optional.ofNullable(value)`. "
+What are common Optional methods?,"isPresent(), ifPresent(), get(), orElse(), orElseGet(), orElseThrow(), map(), and flatMap()."
+What is orElseGet() vs orElse()?,orElse() always evaluates its argument; orElseGet() uses a Supplier and only executes if Optional is empty.
+What is orElseThrow()?,"Throws an exception if the Optional is empty, allowing custom exception handling."
+How do you filter Optional values?,Use optional.filter(predicate) to retain value only if it matches the predicate.
+What is method reference?,A shorthand for lambdas that refer to existing methods. Example: `String::toUpperCase`. 
+What are the types of method references?,"Types include static (`Class::method`), instance (`instance::method`), constructor (`Class::new`), and specific object (`obj::method`)."
+What is a constructor reference?,A reference to a constructor using `Class::new`. Example: `Supplier<List> s = ArrayList::new;`. 
+What are default methods in interfaces?,Methods in interfaces with default implementation using the `default` keyword. They provide backward compatibility for interface evolution.
+What are static methods in interfaces?,"Static methods in interfaces belong to the interface type, not instances, and are called using the interface name."
+What is the difference between default and abstract methods?,Default methods have implementations; abstract methods do not and must be implemented by subclasses.
+Can interfaces have private methods?,"Yes, from Java 9 onwards, private methods can be used for code reusability within interfaces."
+What is the new Date and Time API in Java 8?,"Introduced in java.time package, it provides immutable, thread-safe classes for handling dates and times (e.g., LocalDate, LocalTime, ZonedDateTime)."
+What is LocalDate?,"Represents a date (year, month, day) without time or time zone. Example: `LocalDate.now()`. "
+What is LocalTime?,Represents time without date or timezone. Example: `LocalTime.now()`. 
+What is LocalDateTime?,Combines date and time without a time zone. Example: `LocalDateTime.now()`. 
+What is ZonedDateTime?,Represents date-time with timezone information. Example: `ZonedDateTime.now(ZoneId.of('Asia/Kolkata'))`. 
+What is Period?,"Represents the difference between two dates in years, months, and days."
+What is Duration?,"Represents time-based differences, measured in hours, minutes, seconds, or nanoseconds."
+What is Instant?,Represents a specific timestamp (UTC time) and is useful for precise time measurement.
+How to format dates in Java 8?,Use `DateTimeFormatter` with predefined or custom patterns. Example: `DateTimeFormatter.ofPattern('dd-MM-yyyy')`. 
+What is the difference between Date and LocalDate?,Date is mutable and not thread-safe; LocalDate is immutable and thread-safe.
+What is Stream pipeline?,A sequence of stream operations (source → intermediate → terminal) executed lazily for efficiency.
+What is lazy evaluation in streams?,"Streams delay computation until a terminal operation is invoked, improving efficiency."
+What is parallel stream?,A stream that divides elements into multiple threads for parallel processing using ForkJoinPool.
+When should you use parallel streams?,Use when data processing is CPU-intensive and can benefit from parallel execution on multicore systems.
+What is Collectors class?,"A utility class providing common collectors like toList(), toSet(), groupingBy(), partitioningBy(), and joining()."
+What does Collectors.groupingBy() do?,Groups elements by a classifier function into a Map. Example: `groupingBy(Employee::getDepartment)`. 
+What is Collectors.partitioningBy()?,Partitions elements into two groups based on a predicate. Example: `partitioningBy(e -> e.getAge() > 30)`. 
+What is Collectors.joining()?,"Concatenates stream elements into a single string with optional delimiter, prefix, and suffix."
+What is Stream.sorted()?,Returns a sorted stream based on natural order or a custom comparator.
+What is Stream.distinct()?,Removes duplicate elements based on equals().
+What is peek() in Stream?,peek() allows inspecting elements for debugging without modifying the stream pipeline.
+What is findFirst()?,Returns the first element in a stream wrapped in an Optional.
+What is findAny()?,"Returns any element from the stream, often used with parallel streams."
+What is anyMatch()?,Checks if any element matches a predicate and short-circuits once found.
+What is allMatch()?,Checks if all elements satisfy a predicate.
+What is noneMatch()?,Checks if no elements satisfy a predicate.
+What are Optional streams?,"Introduced in Java 9, they allow converting Optional to Stream using `optional.stream()`. "
+What is Stream.ofNullable()?,"Introduced in Java 9, it creates a stream of one element or empty if null."
+What is takeWhile() and dropWhile()?,Java 9 methods that limit or skip elements based on a predicate.
+What is iterate() in Stream?,"Creates an infinite stream by iterative function application. Example: `Stream.iterate(0, n -> n + 2)`. "
+What is IntStream?,"A specialized stream for primitive int values, avoiding boxing overhead."
+What is DoubleStream?,"Stream specialized for double values with numeric methods like sum(), average(), and max()."
+What is Stream.Builder?,Used to build streams dynamically using add() and build() methods.
+What is Optional.ifPresentOrElse()?,"Introduced in Java 9, it executes an action if present or another action if empty."
+What is LocalDate.of()?,"Creates a specific date from year, month, and day. Example: `LocalDate.of(2025, 11, 8)`. "
+What is LocalDate.parse()?,Parses a string into a LocalDate using a specified DateTimeFormatter.
+What is Instant.now()?,Captures the current timestamp in UTC.
+What is TemporalAdjuster?,Used to adjust dates like 'next Monday' or 'first day of month'. Example: `date.with(TemporalAdjusters.firstDayOfMonth())`. 
+What are improvements in interfaces in Java 8?,Introduction of default and static methods for backward compatibility and shared logic.
+What is the difference between Optional.map() and flatMap()?,map() wraps the result in another Optional; flatMap() avoids nested Optionals by flattening results.
+What is Stream.collectingAndThen()?,A collector that performs an additional finishing transformation after collection.
+What are improvements in Java 9 streams?,"New methods like takeWhile(), dropWhile(), iterate(), and ofNullable()."
+What are private interface methods?,Introduced in Java 9 to allow code reuse inside interfaces without exposing to implementers.
+What is var keyword?,"Introduced in Java 10, it allows local variable type inference based on the assigned value."
+What are switch expressions?,Java 14 introduced switch expressions returning values and reducing verbosity.
+What are text blocks?,"Introduced in Java 15, they provide multiline string literals enclosed in triple quotes (`""""""`)."
+What is record keyword?,"Introduced in Java 16, records are immutable data classes with auto-generated equals(), hashCode(), and toString()."
+What is sealed class?,"Introduced in Java 17, it restricts which classes can extend or implement a given class or interface."
+What is pattern matching for instanceof?,Java 16+ feature allowing inline type casting in instanceof checks.
+What is enhanced NullPointerException message?,"From Java 14, JVM shows which variable was null, improving debugging."
+What are Stream.toList() and Stream.mapMulti()?,Java 16 added toList() for unmodifiable lists and mapMulti() for advanced transformations.
+What are performance benefits of Java 8 features?,"Lambdas reduce object overhead, Streams enable lazy computation, and JIT optimizes functional constructs efficiently."
+What is the advantage of immutability in new APIs?,Immutable classes like LocalDate and Optional ensure thread safety and avoid side effects in concurrent environments.
+Why was Optional introduced?,To avoid NullPointerExceptions and encourage functional-style null handling with clear semantics.
+What are common mistakes using streams?,"Using parallel streams unnecessarily, modifying source collections, and forgetting terminal operations."
+What are limitations of streams?,Streams cannot be reused after terminal operations and are not suitable for all iterative logic requiring indexing or side effects.
+What is functional programming in Java 8?,"A paradigm focusing on immutability and functions as first-class citizens, supported by lambdas and streams."
+What is the impact of lambdas on performance?,"Lambdas are optimized at runtime using invokedynamic, offering near-native performance when used correctly."
+What is JDBC?,JDBC (Java Database Connectivity) is an API that enables Java applications to interact with relational databases through standard SQL queries.
+What are the main components of JDBC?,"The main components are DriverManager, Connection, Statement, PreparedStatement, CallableStatement, and ResultSet."
+What is a JDBC driver?,"A JDBC driver is a software component that implements the JDBC API for a specific database, enabling Java applications to connect and execute SQL queries."
+What are the types of JDBC drivers?,"JDBC drivers are classified into four types: Type 1 (JDBC-ODBC bridge), Type 2 (Native-API), Type 3 (Network Protocol), and Type 4 (Pure Java)."
+What is a Type 4 driver?,A Type 4 driver is a pure Java driver that communicates directly with the database using its native protocol.
+What is DriverManager?,DriverManager manages JDBC drivers and establishes connections between Java applications and databases.
+How do you establish a JDBC connection?,"Use `DriverManager.getConnection(url, user, password)` to connect to the database after loading the driver."
+What is a Statement in JDBC?,A Statement is used to execute static SQL queries that do not require parameters.
+What is PreparedStatement?,"PreparedStatement is a precompiled SQL statement that allows parameterized queries, improving performance and preventing SQL injection."
+What is CallableStatement?,CallableStatement is used to call stored procedures from Java applications.
+What is ResultSet?,ResultSet represents the result of an SQL query and allows navigation through retrieved data using cursor-based methods.
+What are ResultSet types?,"Types include TYPE_FORWARD_ONLY, TYPE_SCROLL_INSENSITIVE, and TYPE_SCROLL_SENSITIVE for navigating rows."
+What are ResultSet concurrency modes?,They are CONCUR_READ_ONLY and CONCUR_UPDATABLE for controlling data modification within result sets.
+What is batch processing in JDBC?,"Batch processing groups multiple SQL statements into one batch for execution, reducing network overhead."
+What is connection pooling?,Connection pooling reuses database connections to improve performance and reduce resource usage.
+What is DataSource in JDBC?,DataSource is an alternative to DriverManager providing connection pooling and distributed transactions.
+What are JDBC transactions?,Transactions in JDBC ensure a group of SQL operations either fully complete or fully rollback to maintain data integrity.
+How to disable auto-commit in JDBC?,Use `connection.setAutoCommit(false)` to manually manage transactions.
+How to commit or rollback a transaction?,Use `connection.commit()` to save changes and `connection.rollback()` to revert changes.
+What is SQL injection?,SQL injection is a security vulnerability that allows attackers to alter SQL queries by injecting malicious inputs. PreparedStatements help prevent it.
+What is JDBC metadata?,"JDBC metadata provides information about database structure (tables, columns) and driver capabilities using DatabaseMetaData and ResultSetMetaData."
+What is ResultSetMetaData?,"It provides information about the columns in a ResultSet, such as column names and data types."
+What is DatabaseMetaData?,"DatabaseMetaData provides details about the database as a whole, such as version, driver, and supported SQL features."
+What is the difference between executeQuery() and executeUpdate()?,"executeQuery() runs SELECT statements returning ResultSet, while executeUpdate() executes INSERT, UPDATE, or DELETE returning affected row count."
+What is the execute() method used for?,execute() is a generic method used when the type of SQL statement (query or update) is unknown at runtime.
+What is the purpose of setFetchSize()?,It sets the number of rows to fetch from the database in one round trip for performance optimization.
+How to handle database exceptions?,Use try-catch blocks to handle SQLException and always close resources in finally or try-with-resources blocks.
+What is the difference between Statement and PreparedStatement?,Statement executes static queries; PreparedStatement supports parameterized and precompiled queries improving performance.
+What is JDBC Savepoint?,Savepoints allow partial rollbacks within transactions using `setSavepoint()` and `rollback(savepoint)`.
+What is row set in JDBC?,"RowSet is a disconnected, serializable version of ResultSet that can be used in JavaBeans."
+What is CachedRowSet?,CachedRowSet is a disconnected ResultSet that can operate without maintaining a live connection to the database.
+What is a driver class in JDBC?,It is a class that implements java.sql.Driver and registers itself with DriverManager to handle connections.
+What is connection leak?,"Connection leak occurs when database connections are not closed properly, leading to exhaustion of resources."
+What is the importance of closing connections?,Closing JDBC resources prevents memory leaks and allows connection reuse in pooled environments.
+What are JDBC best practices?,"Use connection pooling, PreparedStatements, try-with-resources, and avoid keeping connections open unnecessarily."
+What is Java Networking?,Java Networking enables communication between computers over a network using classes in the java.net package.
+What is a socket?,A socket is an endpoint for sending and receiving data between two machines over a network.
+What are the types of sockets?,Java supports stream sockets (TCP) and datagram sockets (UDP).
+What is TCP?,"TCP (Transmission Control Protocol) is a reliable, connection-oriented protocol ensuring ordered data delivery."
+What is UDP?,UDP (User Datagram Protocol) is a connectionless protocol offering faster but less reliable communication.
+What is ServerSocket?,ServerSocket is used by servers to listen for incoming client connections on a specific port.
+What is Socket class?,Socket represents the client side of a connection used to send and receive data over TCP.
+What is DatagramPacket?,DatagramPacket is a container for sending and receiving packets of data using UDP.
+What is InetAddress?,InetAddress represents IP addresses and provides methods to resolve hostnames to IP addresses.
+What is URL class in Java?,URL class represents a Uniform Resource Locator for accessing web resources like HTTP or FTP.
+What is URLConnection?,URLConnection provides a communication link between an application and a URL for reading or writing data.
+What is HttpURLConnection?,HttpURLConnection is a subclass used to communicate with HTTP servers and handle requests and responses.
+What is RMI?,Remote Method Invocation allows Java objects to invoke methods on remote objects running on different JVMs.
+What are the steps in RMI communication?,"Steps include creating remote interface, implementing it, generating stubs/skeletons, binding in registry, and invoking remotely."
+What is the RMI registry?,"A registry that maintains mappings of remote object names to references, enabling clients to locate them."
+What are RMI stubs?,Stubs are client-side proxies that represent remote objects and forward method calls over the network.
+What is RMIException?,RemoteException signals communication-related errors during RMI calls.
+What are Design Patterns?,Design patterns are reusable solutions to common software design problems that improve flexibility and maintainability.
+What are the main types of design patterns?,"Creational, Structural, and Behavioral are the three main categories of design patterns."
+What is Singleton Pattern?,Ensures a class has only one instance and provides a global access point using private constructors and a static method.
+What is Factory Pattern?,Factory Pattern defines an interface for creating objects but lets subclasses decide which class to instantiate.
+What is Abstract Factory Pattern?,Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+What is Builder Pattern?,"Separates the construction of complex objects from their representation, allowing step-by-step creation."
+What is Prototype Pattern?,Creates new objects by cloning existing instances rather than creating from scratch.
+What is Adapter Pattern?,Allows incompatible interfaces to work together by wrapping one class with another adapter class.
+What is Decorator Pattern?,Adds responsibilities dynamically to objects without altering their structure.
+What is Proxy Pattern?,Provides a surrogate or placeholder to control access to another object.
+What is Facade Pattern?,"Provides a unified interface to a set of interfaces in a subsystem, simplifying client usage."
+What is Bridge Pattern?,Decouples abstraction from implementation so they can evolve independently.
+What is Composite Pattern?,Composes objects into tree structures to represent part-whole hierarchies.
+What is Flyweight Pattern?,Minimizes memory use by sharing common state between multiple similar objects.
+What is Chain of Responsibility Pattern?,Passes requests along a chain of handlers until one handles it.
+What is Command Pattern?,"Encapsulates a request as an object, allowing parameterization and queuing of requests."
+What is Strategy Pattern?,"Defines a family of algorithms, encapsulates each one, and makes them interchangeable."
+What is Observer Pattern?,"Defines a dependency between objects so that when one changes state, all dependents are notified automatically."
+What is Template Method Pattern?,"Defines the skeleton of an algorithm, allowing subclasses to redefine certain steps."
+What is State Pattern?,Allows an object to change behavior when its internal state changes.
+What is Memento Pattern?,Captures an object’s internal state so it can be restored later without exposing details.
+What is Iterator Pattern?,Provides a way to access elements of a collection sequentially without exposing its structure.
+What is Visitor Pattern?,Separates an algorithm from an object structure by moving the algorithm into a visitor object.
+What is Interpreter Pattern?,Defines a representation for a language’s grammar and an interpreter to evaluate sentences in the language.
+What is MVC Pattern?,"Model-View-Controller separates data (Model), UI (View), and business logic (Controller) for better maintainability."
+What is Dependency Injection?,A technique where an object receives its dependencies from external sources rather than creating them internally.
+What is Inversion of Control (IoC)?,A principle where the control of object creation and management is inverted from the program to a framework or container.
+What is a thread pool?,A collection of pre-initialized threads used to execute tasks efficiently by reusing existing threads.
+What is deadlock in concurrency?,Occurs when two threads wait on each other’s resources indefinitely.
+What are Java annotations used for?,Annotations provide metadata used by compilers and frameworks to configure or generate code at runtime.
+What is reflection security risk?,Improper use of reflection can bypass encapsulation and expose private data or allow injection attacks.
+What is serialization proxy pattern?,"A safe serialization pattern where a proxy object handles serialization logic, preventing exploits via object manipulation."
+What is marker interface?,"An interface with no methods that provides metadata to the JVM or frameworks, like Serializable or Cloneable."
+What is a memory leak in Java?,"Occurs when objects remain referenced unintentionally, preventing garbage collection and increasing memory usage."
+What is finalize() method deprecated?,Deprecated because of unpredictability; replaced by AutoCloseable and Cleaner API.
+What are best practices for exception handling?,"Catch specific exceptions, avoid swallowing exceptions, and use finally or try-with-resources to close resources."
+What is thread-safe singleton?,"A singleton implementation that ensures safe instance creation in multithreaded environments, often using synchronized or double-checked locking."
+What are volatile variables?,Variables declared volatile ensure visibility of updates across threads without caching inconsistencies.
+What are Java memory leaks in collections?,"Happens when collections keep references to unused objects, such as unremoved listeners or caches."
+What is double-checked locking?,A pattern that minimizes synchronization overhead by checking instance existence before acquiring a lock.
+What are race conditions?,Situations where multiple threads access shared data simultaneously causing inconsistent results.
+What is ThreadLocal used for?,ThreadLocal provides thread-specific variables preventing interference among threads.
+What are immutable objects?,Objects whose state cannot change after creation; useful for thread safety and simplicity.
+What is a dead code elimination optimization?,A compiler optimization removing unreachable or unnecessary code improving efficiency.
+What are design principles behind SOLID?,"Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion guide object-oriented design."
+What is coupling?,The degree of dependency between components; loose coupling improves flexibility and testability.
+What is cohesion?,Cohesion measures how closely related functionalities in a class are; high cohesion is desirable.
+What is DAO Pattern?,"Data Access Object abstracts and encapsulates data access logic, separating persistence code from business logic."
+What is DTO Pattern?,Data Transfer Object is a serializable object used to transfer data between layers or systems.
+What is Front Controller Pattern?,"Centralizes request handling in a single controller component, common in web applications."
+What is Service Locator Pattern?,Provides a central registry to locate and manage service instances efficiently.
+What is Dependency Inversion Principle?,High-level modules should not depend on low-level modules but both should depend on abstractions.
+What is Observer vs Mediator?,Observer handles one-to-many relationships; Mediator coordinates many-to-many communications among objects.
+What is object cloning?,Creating an exact copy of an object using the clone() method from the Cloneable interface.
+What is shallow vs deep cloning?,Shallow copy copies field references; deep copy duplicates referenced objects recursively.
+What are distributed systems in Java?,"Systems with multiple JVMs communicating over a network using technologies like RMI, CORBA, or WebSockets."
+What is serialization versioning?,Versioning ensures backward compatibility of serialized objects using serialVersionUID.
+What is optimistic locking?,A concurrency control technique that assumes minimal conflicts and uses version checks before updates.
+What is pessimistic locking?,Prevents conflicts by locking data for the entire transaction duration.
+What are design pattern benefits?,"They standardize solutions, improve maintainability, and promote reusability across systems."
+What is REST API in Java?,"Representational State Transfer defines stateless, resource-based communication often implemented with frameworks like Spring Boot."
+What is JSON processing in Java?,Handled via libraries like Jackson or Gson for parsing and serialization of JSON data.
+What is XML parsing in Java?,"Handled using DOM, SAX, or StAX parsers for structured document manipulation."
+What are lambda performance considerations?,Excessive use of lambdas may impact readability; prefer them for concise functional logic.
+What is GC tuning?,"Adjusting JVM GC parameters (heap, generations, collectors) for performance and latency optimization."
+What is JMX?,Java Management Extensions allow monitoring and management of Java applications via MBeans.
+What are memory management tools?,"Tools like jconsole, VisualVM, and Mission Control help monitor heap, threads, and GC performance."
+What is JVM monitoring?,"Tracking resource usage, garbage collection, and thread health using JMX or external tools."
+What is dynamic proxy vs static proxy?,Static proxy is manually coded; dynamic proxy generates proxy classes at runtime using java.lang.reflect.Proxy.
+What is annotation processing?,Analyzing and generating code during compile time based on custom annotations using javax.annotation.processing package.
+What are Java security features?,"Includes classloader isolation, bytecode verification, sandboxing, and cryptography APIs."
+What is SSL in Java?,Secure Sockets Layer ensures encrypted communication using javax.net.ssl package.
+What is KeyStore in Java?,KeyStore stores cryptographic keys and certificates used for SSL/TLS authentication.
+What are cipher and message digest?,Cipher encrypts/decrypts data; MessageDigest generates fixed-length hash values for data integrity.
+What is RSA encryption?,An asymmetric encryption algorithm using public and private keys for secure data exchange.
+What is AES encryption?,"A symmetric encryption algorithm used for fast, secure data encryption with a shared key."
+What is HMAC?,Hash-based Message Authentication Code ensures both data integrity and authenticity using shared secret keys.
+What is digital signature?,A cryptographic mechanism that ensures authenticity and integrity of messages using private keys.
+What are secure coding practices in Java?,"Validate input, avoid deserialization of untrusted data, use secure randoms, and sanitize outputs."
+What are common interview puzzles in Java?,"Reverse a linked list, detect loops, implement producer-consumer, or find missing numbers using streams."
+What are coding optimization techniques?,"Use StringBuilder for concatenation, prefer primitives over wrappers, and minimize object creation in loops."
+What are design trade-offs?,"Balancing between performance, maintainability, scalability, and simplicity in system design decisions."

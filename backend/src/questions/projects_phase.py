@@ -43,6 +43,8 @@ def _normalize_question(q: str) -> str:
     # Collapse any run of ? into a single ?
     q = re.sub(r"\?{2,}", "?", q)
     q = q.replace('?"', '?').replace("?'", '?')
+    # Ensure exactly one trailing question mark, no duplicates
+    q = re.sub(r"\?+$", "?", q) if q else q
     if not q.endswith('?') and len(q) > 8:
         q += '?'
     return q
@@ -76,22 +78,39 @@ def generate_project_question_for_one(
 
     prev_ctx = "\n".join(prev_responses[-2:]) if prev_responses else ""
 
-    # 🎯 Clear, rewritten prompt for single project
+    # Diversification focus areas (omit heavy security/integrity themes; keep implementation-centric)
+    FOCUS_AREAS = [
+        "the way you implemented a core feature",
+        "how data flows between components",
+        "an API endpoint you designed",
+        "a specific data model decision",
+        "how you handled state or workflow progression",
+        "a deployment or environment setup step",
+        "a testing approach (unit/integration) without mentioning observability",
+        "a performance tweak (avoid repeating 'performance' every time)",
+        "a library or tool selection and rationale",
+        "an edge case you discovered and solved",
+    ]
+    focus = random.choice(FOCUS_AREAS)
+
+    # 🎯 Prompt emphasizing practical implementation and moderate difficulty
     prompt = f"""
-You are an AI interviewer. Generate ONE concise technical interview question
-based on the candidate's project below. The question MUST explicitly reference the project title or topic.
+You are an AI interviewer. Generate ONE concise implementation-focused question about this project.
+It MUST reference the project title or topic and be moderate difficulty.
 
 Project title: {title_raw or '[unknown]'}
 Summary: {summary}
-
-Candidate’s recent responses (if any):
+Recent responses:
 {prev_ctx or 'None'}
 
-Guidelines:
-- Focus ONLY on this project.
-- Avoid repeating questions like “Tell me about this project”.
-- Ask about real challenges, technical decisions, or measurable impact.
-- Output only ONE clear question.
+Focus area: {focus}
+
+Rules:
+- Center on practical implementation ("how did you", "walk me through", "which tools").
+- Avoid deep theory, security/integrity/consistency themes unless the summary explicitly mentions them.
+- Avoid words: security, integrity, consistency, compliance, encryption unless in summary.
+- No broad scale/system design hypotheticals.
+- Output exactly ONE question line. No lists, no intro text.
 """
 
     try:
@@ -100,8 +119,12 @@ Guidelines:
         for line in raw.splitlines():
             line = line.strip("-• ").strip()
             if line:
+                # Force single trailing ?
+                import re
+                line = re.sub(r"\?{2,}", "?", line)
                 if not line.endswith("?") and len(line) > 8:
                     line += "?"
+                line = re.sub(r"\?+$", "?", line)
                 # Ensure the question explicitly mentions the true project title when available
                 low = line.lower()
                 if title_raw and title_raw.lower() in low:
@@ -110,20 +133,25 @@ Guidelines:
                 prefix = (
                     f"In {title_raw}, " if (title_raw and not is_generic) else f"Regarding your work on {display_title}, "
                 )
-                base = line.lstrip('\"\'')
+                base = line.lstrip('"\'')
                 base = base[0].lower() + base[1:] if base and base[0].isupper() else base
                 return _normalize_question(f"{prefix}{base}")
     except Exception:
         pass
 
-    # 🧩 Fallback if LLM fails
+    # 🧩 Fallback if LLM fails — focus on implementation-oriented prompts
     prefix = (
         f"In {title_raw}, " if (title_raw and not is_generic) else f"Regarding your work on {display_title}, "
     )
+    topic_hint = _sanitize_topic(summary).split(" ")[:6]
+    topic_hint = " ".join([w for w in topic_hint if w]) or display_title or "this project"
     fallback_bank = [
-        f"{prefix}what was the most difficult technical issue you solved and how?",
-        f"{prefix}what key design or architectural choice did you make and why?",
-        f"{prefix}what measurable impact or improvement did you achieve?",
+        f"{prefix}how did you implement the core feature around {topic_hint}?",
+        f"{prefix}which tools or libraries did you choose for {topic_hint}, and why?",
+        f"{prefix}can you walk me through the architecture you used for {topic_hint}?",
+        f"{prefix}how did you deploy and run {topic_hint} in your environment?",
+        f"{prefix}how did you test and monitor {topic_hint} to ensure it worked as expected?",
+        f"{prefix}what performance bottleneck did you encounter in {topic_hint}, and how did you fix it?",
     ]
     return _normalize_question(random.choice(fallback_bank))
 
@@ -204,7 +232,7 @@ def run_projects_interaction(store: SessionStore, play_audio: bool = True) -> No
 
     # 🎤 Ask the question aloud
     text_to_speech(question, play=play_audio)
-    time.sleep(5)
+        # Removed backend sleep; frontend handles any thinking countdown
     answer = stt.listen(timeout=8.0, phrase_time_limit=90.0)
 
     # 🧮 Evaluate the answer

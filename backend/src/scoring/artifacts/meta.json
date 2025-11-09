@@ -1,0 +1,8 @@
+{
+  "embed_model": "all-MiniLM-L6-v2",
+  "qa_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "dataset_sha256": "cd4aa5634174ced04fbf25c1a1f165fb33e6329fc7ee6096d1746faa6b51f6e5",
+  "count": 2101,
+  "answers_path": "answers.pt",
+  "dataset_name": "combined_dataset_final.csv"
+}

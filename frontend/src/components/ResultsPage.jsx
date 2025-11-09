@@ -35,12 +35,15 @@ const ResultsPage = () => {
     try {
       setDownloading(true);
       const blob = await downloadReport(sessionId);
+      // Pick file extension based on blob content type to avoid corrupt PDF errors
+      const ct = blob?.type || '';
+      const ext = ct === 'application/pdf' ? 'pdf' : (ct === 'text/plain' ? 'txt' : 'bin');
       
       // Create download link
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `interview_report_${sessionId.substring(0, 8)}.pdf`;
+      a.download = `interview_report_${sessionId.substring(0, 8)}.${ext}`;
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);

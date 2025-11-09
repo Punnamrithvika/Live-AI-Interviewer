@@ -10,7 +10,7 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
   const navigate = useNavigate();
   
   // Config
-  const THINK_SECONDS = 5; // time to think before recording starts
+  const THINK_SECONDS = 3; // time to think before recording starts (was 5)
 
   // State Management
   const [currentQuestion, setCurrentQuestion] = useState(firstQuestion || '');
@@ -36,15 +36,18 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
   const ttsWaitTimeoutRef = useRef(null);
   const hasStartedThinkingRef = useRef(false);
   const speakQuestionRef = useRef(null);
+  const autoStopTimeoutRef = useRef(null);
   // Live refs to avoid stale closures
   const micStreamRef = useRef(null);
   const startRecordingRef = useRef(() => {});
-  // Video recording refs
-  const videoRecorderRef = useRef(null);
-  const videoChunksRef = useRef([]);
+  // (Video recording disabled per request; keep only live camera preview)
+  const avRecorderRef = useRef(null); // unused now
+  const avChunksRef = useRef([]); // unused now
   // Track last question to avoid incrementing counter on duplicates
   const lastQuestionRef = useRef('');
   const hasSpokenInitialRef = useRef(false);
+  // Stable ref to video element to avoid resetting srcObject each render
+  const cameraVideoRef = useRef(null);
   
   // WebSocket connection
   const { isConnected, messages: wsMessages, sendAnswer } = useWebSocket(sessionId);
@@ -68,7 +71,7 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
         }
 
         localVideoStream = await navigator.mediaDevices.getUserMedia({
-          video: { width: 320, height: 240 },
+          video: { width: 320, height: 240, frameRate: { ideal: 15, max: 20 } },
           audio: false
         });
         setCameraStream(localVideoStream);
@@ -131,6 +134,18 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
       }
     };
   }, []);
+
+  // Attach camera stream to video element only when stream changes (prevents flicker)
+  useEffect(() => {
+    const el = cameraVideoRef.current;
+    if (el && cameraStream && el.srcObject !== cameraStream) {
+      el.srcObject = cameraStream;
+      const p = el.play?.();
+      if (p && typeof p.catch === 'function') {
+        p.catch(() => {});
+      }
+    }
+  }, [cameraStream]);
 
   
 
@@ -308,11 +323,11 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
     recordRetryRef.current = 0;
     
     audioChunksRef.current = [];
-  videoChunksRef.current = [];
     
     try {
       const mediaRecorder = new MediaRecorder(liveMicStream, {
-        mimeType: 'audio/webm'
+        mimeType: 'audio/webm',
+        audioBitsPerSecond: 64000
       });
       
       mediaRecorder.ondataavailable = (event) => {
@@ -328,46 +343,26 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
         await submitAnswer(audioBlob);
       };
       
-      mediaRecorderRef.current = mediaRecorder;
-      mediaRecorder.start(100);
+  mediaRecorderRef.current = mediaRecorder;
+  mediaRecorder.start(500); // larger timeslice reduces main-thread churn
       // Only mark recording as started after MediaRecorder starts successfully
       setIsRecording(true);
       isRecordingRef.current = true;
 
-      // Start parallel video recording (camera stream only)
-      if (cameraStream) {
+      // Safety: auto-stop after ~55s to stay under free Google STT limits
+      if (autoStopTimeoutRef.current) clearTimeout(autoStopTimeoutRef.current);
+      autoStopTimeoutRef.current = setTimeout(() => {
         try {
-          const vmr = new MediaRecorder(cameraStream, {
-            mimeType: 'video/webm;codecs=vp9'
-          });
-
-          vmr.ondataavailable = (event) => {
-            if (event.data && event.data.size > 0) {
-              videoChunksRef.current.push(event.data);
-            }
-          };
-
-          vmr.onstop = () => {
-            try {
-              const videoBlob = new Blob(videoChunksRef.current, { type: 'video/webm' });
-              // Keep the video clip in memory for now; integrate upload when backend endpoint is available.
-              console.log('Captured video clip', {
-                bytes: videoBlob.size,
-                questionNumber,
-                sessionId,
-              });
-              // Example: to upload later, use FormData and POST to /api/upload-video (to be implemented).
-            } catch (e) {
-              console.error('Error finalizing video blob:', e);
-            }
-          };
-
-          videoRecorderRef.current = vmr;
-          vmr.start(250);
+          if (mediaRecorderRef.current && isRecordingRef.current) {
+            console.log('[AutoStop] Max answer duration reached, stopping recorder');
+            mediaRecorderRef.current.stop();
+          }
         } catch (e) {
-          console.warn('Video recording not supported or failed to start:', e);
+          console.warn('AutoStop failed:', e);
         }
-      }
+      }, 55000);
+
+      // Video recording disabled: keep camera preview only (no upload attempts)
     } catch (err) {
       console.error('Error starting recording:', err);
       setIsRecording(false);
@@ -430,7 +425,7 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
     }, 30000);
   }, [startThinkingTimer]);
 
-  function speakQuestionFn(text) {
+  const speakQuestionFn = useCallback((text) => {
     if ('speechSynthesis' in window) {
       // Cancel any ongoing speech
       window.speechSynthesis.cancel();
@@ -480,12 +475,12 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
       console.warn('Speech synthesis not supported');
       startThinkingTimer();
     }
-  }
+  }, [startThinkingAfterTTS, startThinkingTimer]);
 
   // Keep latest speakQuestion in a ref for stable usage across effects/callbacks
   useEffect(() => {
     speakQuestionRef.current = speakQuestionFn;
-  }, [startThinkingAfterTTS, startThinkingTimer, speakQuestionFn]);
+  }, [speakQuestionFn]);
 
   // Handle WebSocket messages for new questions (placed after speakQuestion to avoid TDZ)
   useEffect(() => {
@@ -531,14 +526,7 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
     if (mediaRecorderRef.current && isRecording) {
       console.log('Stopping audio recorder...');
       mediaRecorderRef.current.stop();
-      if (videoRecorderRef.current) {
-        try {
-          console.log('Stopping video recorder...');
-          videoRecorderRef.current.stop();
-        } catch (e) {
-          console.warn('Error stopping video recorder:', e);
-        }
-      }
+      // A/V recorder removed
       setIsRecording(false);
       isRecordingRef.current = false;
       setAudioLevel(0);
@@ -566,6 +554,10 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
       if (ttsWaitTimeoutRef.current) {
         clearTimeout(ttsWaitTimeoutRef.current);
       }
+      if (autoStopTimeoutRef.current) {
+        clearTimeout(autoStopTimeoutRef.current);
+      }
+      // A/V recorder removed
     };
   }, []);
 
@@ -716,11 +708,7 @@ const AudioInterviewPage = ({ sessionId: propSessionId, firstQuestion }) => {
       {/* Camera Feed (Small corner) */}
       <div className="fixed bottom-6 right-6 w-48 h-36 bg-slate-900 rounded-lg overflow-hidden shadow-2xl border-2 border-amber-300">
         <video
-          ref={(el) => {
-            if (el && cameraStream) {
-              el.srcObject = cameraStream;
-            }
-          }}
+          ref={cameraVideoRef}
           autoPlay
           playsInline
           muted

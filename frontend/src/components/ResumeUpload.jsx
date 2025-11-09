@@ -208,7 +208,7 @@ const ResumeUpload = ({ onUploadSuccess }) => {
         {uploadStatus === 'success' && (
           <div className="mt-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-3">
             <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400" />
-            <p className="text-green-800 dark:text-green-200">
+            <p className="text-black dark:text-black">
               Resume uploaded successfully!
             </p>
           </div>

@@ -6,9 +6,10 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT_DIR / "data"
 REPORTS_DIR = ROOT_DIR / "reports"
 AUDIO_DIR = ROOT_DIR / "audio_out"
+VIDEO_DIR = ROOT_DIR / "video_out"
 TMP_DIR = ROOT_DIR / "tmp"
 
-for d in (DATA_DIR, REPORTS_DIR, AUDIO_DIR, TMP_DIR):
+for d in (DATA_DIR, REPORTS_DIR, AUDIO_DIR, VIDEO_DIR, TMP_DIR):
     d.mkdir(parents=True, exist_ok=True)
 
 

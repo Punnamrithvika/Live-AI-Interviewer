@@ -1,5 +1,7 @@
 import os
 from typing import Optional, Any, Dict
+import concurrent.futures
+import time as _time
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -57,21 +59,32 @@ def generate_text(prompt: str, system: Optional[str] = None, json_mode: bool = F
         messages.append({"role": "system", "content": sys_msg})
     messages.append({"role": "user", "content": prompt})
 
-    try:
-        # Try messages first (ClientV2). Some older clients require 'message' instead.
-        res = client.chat(
+    # Add a timeout wrapper so we can fall back quickly when LLM is slow
+    timeout_s = float(os.getenv("COHERE_TIMEOUT_SECONDS", "6"))
+    def _call_messages():
+        return client.chat(
             model=model,
             messages=messages,
             temperature=float(os.getenv("COHERE_TEMPERATURE", "0.3")),
         )
-    except TypeError as te:
-        # Fall back to single 'message' parameter for legacy clients
+    def _call_legacy():
         combined = (sys_msg + "\n" if sys_msg else "") + prompt
-        res = client.chat(
+        return client.chat(
             model=model,
             message=combined,
             temperature=float(os.getenv("COHERE_TEMPERATURE", "0.3")),
         )
+    try:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
+            fut = ex.submit(_call_messages)
+            try:
+                res = fut.result(timeout=timeout_s)
+            except TypeError:
+                # Fallback to legacy param signature
+                fut2 = ex.submit(_call_legacy)
+                res = fut2.result(timeout=timeout_s)
+            except concurrent.futures.TimeoutError:
+                raise RuntimeError(f"Cohere chat timeout after {timeout_s}s")
     except Exception as e:
         raise RuntimeError(f"Cohere chat failed (model={model}): {e}")
 
